@@ -10,5 +10,8 @@
   "license": "MIT",
   "devDependencies": {
     "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "walk-sync": "^0.2.6"
   }
 }
