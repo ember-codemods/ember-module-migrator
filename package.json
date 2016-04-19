@@ -1,0 +1,11 @@
+{
+  "name": "ember-module-migration",
+  "version": "0.5.0",
+  "description": "Migration script for ember-cli apps.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/**-test.js --recursive"
+  },
+  "author": "Robert Jackson <me@rwjblue.com>",
+  "license": "MIT"
+}
