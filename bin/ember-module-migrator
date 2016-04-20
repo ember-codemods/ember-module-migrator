@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+'use strict';
+
+// Provide a title to the process in `ps`
+process.title = 'ember-module-migrator';
+
+var Migrator = require('../lib');
+
+var nopt = require("nopt");
+var options = {
+  'source-path' : [String, 'app'],
+  'destination-path': [String, 'src']
+}
+parsed = nopt(knownOpts, process.argv);
+
+var migrator = new Migrator(parsed.sourcePath, parsed.destinationPath);
+
+migrator.processFiles();
