@@ -51,6 +51,7 @@ describe('classic engine', function() {
       confirm('app.js', {type: 'main', name: 'app', collection: 'main'});
       confirm('index.md', { name: 'index', collection: 'main' });
       confirm('styles/app.css', { type: 'style', name: 'app', collection: 'styles' });
+      confirm('styles/components/badges.css', { type: 'style', name: 'components/badges', collection: 'styles' });
     });
 
     describe('file info destinations', function() {
@@ -69,7 +70,9 @@ describe('classic engine', function() {
         'templates/posts/post/index.hbs': 'routes/posts/post/index/template.hbs',
         'app.js': 'app.js',
         'router.js': 'router.js',
-        'index.html': 'index.html'
+        'index.html': 'index.html',
+        'styles/app.css': 'styles/app.css',
+        'styles/components/badges.css': 'styles/components/badges.css'
       };
 
       function confirm(src, expected) {
