@@ -11,8 +11,8 @@ var options = {
   'source-path' : [String, 'app'],
   'destination-path': [String, 'src']
 }
-parsed = nopt(knownOpts, process.argv);
+var parsed = nopt(options);
 
-var migrator = new Migrator(parsed.sourcePath, parsed.destinationPath);
+var migrator = new Migrator(parsed['source-path'], parsed['destination-path']);
 
 migrator.processFiles();
