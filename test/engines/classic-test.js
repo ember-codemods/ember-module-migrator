@@ -1,4 +1,7 @@
 var assert = require('power-assert');
+var assertDiff = require('assert-diff');
+var fixturify = require('fixturify');
+var fse = require('fs-extra');
 var ClassicEngine = require('../../lib/engines/classic');
 
 describe('classic engine', function() {
@@ -78,6 +81,35 @@ describe('classic engine', function() {
         var expected = mappings[src];
         confirm(src, expected);
       }
+    });
+  });
+
+  describe('processFiles', function() {
+    var tmpPath = 'tmp/process-files';
+
+    beforeEach(function() {
+      fse.mkdirsSync(tmpPath + '/app');
+      fse.mkdirsSync(tmpPath + '/src');
+    });
+
+    afterEach(function() {
+      fse.removeSync(tmpPath);
+    });
+
+    it('should be able to migrate a file structure', function() {
+      var input = require('../fixtures/classic-acceptance/input');
+      var expected = require('../fixtures/classic-acceptance/output');
+
+      fixturify.writeSync(tmpPath + '/app', input);
+
+      var engine = new ClassicEngine(tmpPath + '/app', tmpPath + '/src');
+
+      return engine.processFiles()
+        .then(function() {
+          var actual = fixturify.readSync(tmpPath + '/src');
+
+          assertDiff.deepEqual(actual, expected);
+        });
     });
   });
 });
