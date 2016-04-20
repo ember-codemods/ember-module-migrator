@@ -2,11 +2,11 @@ var assert = require('power-assert');
 var assertDiff = require('assert-diff');
 var fixturify = require('fixturify');
 var fse = require('fs-extra');
-var ClassicEngine = require('../../lib/engines/classic');
+var Migrator = require('../../lib');
 
 describe('classic engine', function() {
   it('can be created with a source and destination', function() {
-    var engine = new ClassicEngine('app', 'src');
+    var engine = new Migrator('app', 'src');
 
     assert(engine.source === 'app');
     assert(engine.dest === 'src');
@@ -16,7 +16,7 @@ describe('classic engine', function() {
     var engine;
 
     beforeEach(function() {
-      engine = new ClassicEngine('app', 'src');
+      engine = new Migrator('app', 'src');
     });
 
     it('returns an object', function() {
@@ -102,7 +102,7 @@ describe('classic engine', function() {
 
       fixturify.writeSync(tmpPath + '/app', input);
 
-      var engine = new ClassicEngine(tmpPath + '/app', tmpPath + '/src');
+      var engine = new Migrator(tmpPath + '/app', tmpPath + '/src');
 
       return engine.processFiles()
         .then(function() {
