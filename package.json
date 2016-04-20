@@ -4,7 +4,7 @@
   "description": "Migration script for ember-cli apps.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha tests/**-test.js"
+    "test": "mocha test/**-test.js"
   },
   "author": "Robert Jackson <me@rwjblue.com>",
   "license": "MIT",
