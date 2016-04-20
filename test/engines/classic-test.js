@@ -9,69 +9,71 @@ describe('classic engine', function() {
     assert(engine.dest === 'src');
   });
 
-  describe('_calculateType', function() {
-    function confirmType(path, expectedType) {
-      it(path + ' should be a ' + expectedType, function() {
-        var engine = new ClassicEngine('app', 'src');
+  describe('fileInfoFor', function() {
+    var engine;
 
-        assert(engine._calculateType(path) === expectedType);
-      });
-    }
+    beforeEach(function() {
+      engine = new ClassicEngine('app', 'src');
+    });
 
-    confirmType('app/components/foo-bar/template.hbs', 'component-template');
-    confirmType('app/templates/components/foo-bar.hbs', 'component-template');
-    confirmType('app/components/foo-bar/component.js', 'component');
-    confirmType('app/components/foo-bar.js', 'component');
-    confirmType('app/routes/foo-bar.js', 'route');
-    confirmType('app/adapters/post.js', 'adapter');
-    confirmType('app/serializers/post.js', 'serializer');
-  });
+    it('returns an object', function() {
+      var file = engine.fileInfoFor('app/components/foo-bar.js');
 
-  describe('_calculateName', function() {
-    function confirm(path, expected) {
-      it(path + ' should be named ' + expected, function() {
-        var engine = new ClassicEngine('app', 'src');
+      assert(file);
+    });
 
-        assert(engine._calculateName(path) === expected);
-      });
-    }
+    describe('file info properties', function() {
+      function confirm(path, expected) {
+        it(path + ' has the expected properties', function() {
+          var file = engine.fileInfoFor(path);
 
-    confirm('app/components/foo-bar/template.hbs', 'foo-bar');
-    confirm('app/templates/components/foo-bar.hbs', 'foo-bar');
-    confirm('app/components/foo-bar/component.js', 'foo-bar');
-    confirm('app/components/foo-bar.js', 'foo-bar');
-    confirm('app/components/foo/baz-bar.js', 'foo/baz-bar');
-    confirm('app/routes/foo/bar/baz.js', 'foo/bar/baz');
-    confirm('app/adapters/post.js', 'post');
-  });
+          var keys = Object.keys(expected);
+          for (var i = 0; i < keys.length; i++) {
+            var key = keys[i];
 
-  describe('calculateDestFor', function() {
-    var mappings = {
-      'app/components/foo-bar.js': 'src/components/foo-bar/component.js',
-      'app/components/qux-derp/component.js': 'src/components/qux-derp/component.js',
-      'app/templates/components/foo-bar.hbs': 'src/components/foo-bar/template.hbs',
-      'app/components/qux-derp/template.hbs': 'src/components/qux-derp/template.hbs',
-      'app/routes/post/index.js': 'src/routes/post/index/route.js',
-      'app/templates/post/index.hbs': 'src/routes/post/index/template.hbs',
-      'app/routes/foo/bar/baz.js': 'src/routes/foo/bar/baz/route.js',
-      'app/templates/foo/bar/baz.hbs': 'src/routes/foo/bar/baz/template.hbs',
-      'app/adapters/post.js': 'src/data/post/adapter.js',
-      'app/serializers/post.js': 'src/data/post/serializer.js',
-      'app/controllers/foo/bar/baz.js': 'src/routes/foo/bar/baz/controller.js'
-    };
+            assert(file[key] === expected[key]);
+          }
+        });
+      }
 
-    function confirm(src, expected) {
-      it('should map ' + src + ' to ' + expected, function() {
-        var engine = new ClassicEngine('app', 'src');
-        var actual = engine.calculateDestFor(src);
+      confirm('app/components/foo-bar.js', {type: 'component', name: 'foo-bar', collection: 'components'});
+      confirm('app/components/foo-bar/component.js', {type: 'component', name: 'foo-bar', collection: 'components'});
+      confirm('app/templates/components/foo-bar.hbs', {type: 'template', name: 'foo-bar', collection: 'components'});
+      confirm('app/components/foo-bar/template.hbs', {type: 'template', name: 'foo-bar', collection: 'components'});
+      confirm('app/routes/foo-bar.js', {type: 'route', name: 'foo-bar', collection: 'routes'});
+      confirm('app/routes/foo-bar/baz/index.js', {type: 'route', name: 'foo-bar/baz/index', collection: 'routes'});
+      confirm('app/templates/foo-bar.hbs', {type: 'template', name: 'foo-bar', collection: 'routes'});
+      confirm('app/templates/foo-bar/baz/index.hbs', {type: 'template', name: 'foo-bar/baz/index', collection: 'routes'});
+      confirm('app/adapters/application.js', {type: 'adapter', name: 'application', collection: 'data'});
+    });
 
-        assert(actual === expected);
-      });
-    }
+    describe('file info destinations', function() {
+      var mappings = {
+        'app/components/foo-bar.js': 'src/components/foo-bar/component.js',
+        'app/components/qux-derp/component.js': 'src/components/qux-derp/component.js',
+        'app/templates/components/foo-bar.hbs': 'src/components/foo-bar/template.hbs',
+        'app/components/qux-derp/template.hbs': 'src/components/qux-derp/template.hbs',
+        'app/routes/post/index.js': 'src/routes/post/index/route.js',
+        'app/templates/post/index.hbs': 'src/routes/post/index/template.hbs',
+        'app/routes/foo/bar/baz.js': 'src/routes/foo/bar/baz/route.js',
+        'app/templates/foo/bar/baz.hbs': 'src/routes/foo/bar/baz/template.hbs',
+        'app/adapters/post.js': 'src/data/post/adapter.js',
+        'app/serializers/post.js': 'src/data/post/serializer.js',
+        'app/controllers/foo/bar/baz.js': 'src/routes/foo/bar/baz/controller.js'
+      };
 
-    for (var src in mappings) {
-      var expected = mappings[src];
-      confirm(src, expected);
-    }
+      function confirm(src, expected) {
+        it('should map ' + src + ' to ' + expected, function() {
+          var file = engine.fileInfoFor(src);
+
+          assert(file.destRelativePath === expected);
+        });
+      }
+
+      for (var src in mappings) {
+        var expected = mappings[src];
+        confirm(src, expected);
+      }
+    });
   });
 });
