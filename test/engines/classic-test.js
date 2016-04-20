@@ -48,7 +48,7 @@ describe('classic engine', function() {
       confirm('templates/foo-bar.hbs', {type: 'template', name: 'foo-bar', collection: 'routes'});
       confirm('templates/foo-bar/baz/index.hbs', {type: 'template', name: 'foo-bar/baz/index', collection: 'routes'});
       confirm('adapters/application.js', {type: 'adapter', name: 'application', collection: 'data'});
-      confirm('app.js', {type: 'main', name: 'app', collection: 'main'});
+      confirm('app.js', {type: 'main', name: 'main', collection: 'main'});
       confirm('index.md', { name: 'index', collection: 'main' });
       confirm('styles/app.css', { type: 'style', name: 'app', collection: 'styles' });
       confirm('styles/components/badges.css', { type: 'style', name: 'components/badges', collection: 'styles' });
@@ -70,7 +70,7 @@ describe('classic engine', function() {
         'serializers/post.js': 'data/post/serializer.js',
         'controllers/foo/bar/baz.js': 'routes/foo/bar/baz/controller.js',
         'templates/posts/post/index.hbs': 'routes/posts/post/index/template.hbs',
-        'app.js': 'app.js',
+        'app.js': 'main.js',
         'router.js': 'router.js',
         'index.html': 'index.html',
         'styles/app.css': 'styles/app.css',

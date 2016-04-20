@@ -1,5 +1,5 @@
 module.exports = {
-  'app.js': 'app.js',
+  'main.js': 'app.js',
   'components': {
     'foo-bar': {
       'component.js': 'foo-bar component',
