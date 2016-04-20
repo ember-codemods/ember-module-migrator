@@ -23,7 +23,7 @@ var migrator = new Migrator(parsed['source-path'], parsed['destination-path'], p
 migrator.processFiles()
   .then(function() {
     console.log('Finished successfully!');
-  });
+  })
   .catch(function(error) {
     console.error(error.stack);
   });
