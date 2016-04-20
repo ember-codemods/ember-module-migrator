@@ -49,6 +49,8 @@ describe('classic engine', function() {
       confirm('templates/foo-bar/baz/index.hbs', {type: 'template', name: 'foo-bar/baz/index', collection: 'routes'});
       confirm('adapters/application.js', {type: 'adapter', name: 'application', collection: 'data'});
       confirm('app.js', {type: 'main', name: 'app', collection: 'main'});
+      confirm('index.md', { name: 'index', collection: 'main' });
+      confirm('styles/app.css', { type: 'style', name: 'app', collection: 'styles' });
     });
 
     describe('file info destinations', function() {
@@ -66,7 +68,8 @@ describe('classic engine', function() {
         'controllers/foo/bar/baz.js': 'routes/foo/bar/baz/controller.js',
         'templates/posts/post/index.hbs': 'routes/posts/post/index/template.hbs',
         'app.js': 'app.js',
-        'router.js': 'router.js'
+        'router.js': 'router.js',
+        'index.html': 'index.html'
       };
 
       function confirm(src, expected) {
