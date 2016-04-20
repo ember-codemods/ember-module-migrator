@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 'use strict';
 
+// Local Variables:
+// mode: javascript
+// End:
+
 // Provide a title to the process in `ps`
 process.title = 'ember-module-migrator';
 
@@ -15,4 +19,10 @@ var parsed = nopt(options);
 
 var migrator = new Migrator(parsed['source-path'], parsed['destination-path']);
 
-migrator.processFiles();
+migrator.processFiles()
+  .then(function() {
+    console.log('Finished successfully!');
+  });
+  .catch(function(error) {
+    console.error(error.stack);
+  });
