@@ -52,6 +52,8 @@ describe('classic engine', function() {
       confirm('index.md', { name: 'index', collection: 'main' });
       confirm('styles/app.css', { type: 'style', name: 'app', collection: 'styles' });
       confirm('styles/components/badges.css', { type: 'style', name: 'components/badges', collection: 'styles' });
+      confirm('mixins/foo/bar.js', { type: 'util', name: 'foo/bar', collection: 'utils' });
+
     });
 
     describe('file info destinations', function() {
@@ -74,7 +76,8 @@ describe('classic engine', function() {
         'styles/app.css': 'styles/app.css',
         'styles/components/badges.css': 'styles/components/badges.css',
         'mirage/config.js': 'mirage/config.js',
-        'mirage/factories/foo.js': 'mirage/factories/foo.js'
+        'mirage/factories/foo.js': 'mirage/factories/foo.js',
+        'mixins/foo/bar.js': 'utils/mixins/foo/bar.js'
       };
 
       function confirm(src, expected) {
