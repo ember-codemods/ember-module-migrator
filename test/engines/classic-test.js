@@ -17,7 +17,7 @@ describe('classic engine', function() {
     });
 
     it('returns an object', function() {
-      var file = engine.fileInfoFor('app/components/foo-bar.js');
+      var file = engine.fileInfoFor('components/foo-bar.js');
 
       assert(file);
     });
@@ -36,30 +36,30 @@ describe('classic engine', function() {
         });
       }
 
-      confirm('app/components/foo-bar.js', {type: 'component', name: 'foo-bar', collection: 'components'});
-      confirm('app/components/foo-bar/component.js', {type: 'component', name: 'foo-bar', collection: 'components'});
-      confirm('app/templates/components/foo-bar.hbs', {type: 'template', name: 'foo-bar', collection: 'components'});
-      confirm('app/components/foo-bar/template.hbs', {type: 'template', name: 'foo-bar', collection: 'components'});
-      confirm('app/routes/foo-bar.js', {type: 'route', name: 'foo-bar', collection: 'routes'});
-      confirm('app/routes/foo-bar/baz/index.js', {type: 'route', name: 'foo-bar/baz/index', collection: 'routes'});
-      confirm('app/templates/foo-bar.hbs', {type: 'template', name: 'foo-bar', collection: 'routes'});
-      confirm('app/templates/foo-bar/baz/index.hbs', {type: 'template', name: 'foo-bar/baz/index', collection: 'routes'});
-      confirm('app/adapters/application.js', {type: 'adapter', name: 'application', collection: 'data'});
+      confirm('components/foo-bar.js', {type: 'component', name: 'foo-bar', collection: 'components'});
+      confirm('components/foo-bar/component.js', {type: 'component', name: 'foo-bar', collection: 'components'});
+      confirm('templates/components/foo-bar.hbs', {type: 'template', name: 'foo-bar', collection: 'components'});
+      confirm('components/foo-bar/template.hbs', {type: 'template', name: 'foo-bar', collection: 'components'});
+      confirm('routes/foo-bar.js', {type: 'route', name: 'foo-bar', collection: 'routes'});
+      confirm('routes/foo-bar/baz/index.js', {type: 'route', name: 'foo-bar/baz/index', collection: 'routes'});
+      confirm('templates/foo-bar.hbs', {type: 'template', name: 'foo-bar', collection: 'routes'});
+      confirm('templates/foo-bar/baz/index.hbs', {type: 'template', name: 'foo-bar/baz/index', collection: 'routes'});
+      confirm('adapters/application.js', {type: 'adapter', name: 'application', collection: 'data'});
     });
 
     describe('file info destinations', function() {
       var mappings = {
-        'app/components/foo-bar.js': 'src/components/foo-bar/component.js',
-        'app/components/qux-derp/component.js': 'src/components/qux-derp/component.js',
-        'app/templates/components/foo-bar.hbs': 'src/components/foo-bar/template.hbs',
-        'app/components/qux-derp/template.hbs': 'src/components/qux-derp/template.hbs',
-        'app/routes/post/index.js': 'src/routes/post/index/route.js',
-        'app/templates/post/index.hbs': 'src/routes/post/index/template.hbs',
-        'app/routes/foo/bar/baz.js': 'src/routes/foo/bar/baz/route.js',
-        'app/templates/foo/bar/baz.hbs': 'src/routes/foo/bar/baz/template.hbs',
-        'app/adapters/post.js': 'src/data/post/adapter.js',
-        'app/serializers/post.js': 'src/data/post/serializer.js',
-        'app/controllers/foo/bar/baz.js': 'src/routes/foo/bar/baz/controller.js'
+        'components/foo-bar.js': 'components/foo-bar/component.js',
+        'components/qux-derp/component.js': 'components/qux-derp/component.js',
+        'templates/components/foo-bar.hbs': 'components/foo-bar/template.hbs',
+        'components/qux-derp/template.hbs': 'components/qux-derp/template.hbs',
+        'routes/post/index.js': 'routes/post/index/route.js',
+        'templates/post/index.hbs': 'routes/post/index/template.hbs',
+        'routes/foo/bar/baz.js': 'routes/foo/bar/baz/route.js',
+        'templates/foo/bar/baz.hbs': 'routes/foo/bar/baz/template.hbs',
+        'adapters/post.js': 'data/post/adapter.js',
+        'serializers/post.js': 'data/post/serializer.js',
+        'controllers/foo/bar/baz.js': 'routes/foo/bar/baz/controller.js'
       };
 
       function confirm(src, expected) {
