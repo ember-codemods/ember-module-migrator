@@ -18,7 +18,11 @@ var options = {
 }
 var parsed = nopt(options);
 
-var migrator = new Migrator(parsed['source-path'], parsed['destination-path'], parsed['engine']);
+var migrator = new Migrator({
+  sourceRoot: parsed['source-path'],
+  destRoot: parsed['destination-path'],
+  engine: parsed['engine']
+});
 
 migrator.processFiles()
   .then(function() {
