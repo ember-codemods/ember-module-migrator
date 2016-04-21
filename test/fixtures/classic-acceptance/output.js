@@ -43,7 +43,8 @@ module.exports = {
           'controller.js': 'posts/new controller',
           'route.js': 'posts/new route',
           'template.hbs': 'posts/new route template'
-        }
+        },
+        'show.template.hbs': 'posts/post/show route template'
       }
     },
     'models': {
@@ -60,7 +61,8 @@ module.exports = {
         'adapter.js': 'comment adapter',
         'serializer.js': 'comment serializer',
         'model.js': 'comment model'
-      }
+      },
+      'tag.model.js': 'tag model'
     },
     'initializers': {
       'blah.js': 'blah initializer',
