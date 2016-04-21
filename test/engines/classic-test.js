@@ -47,7 +47,7 @@ describe('classic engine', function() {
       confirm('routes/foo-bar/baz/index.js', {type: 'route', name: 'foo-bar/baz/index', collection: 'routes'});
       confirm('templates/foo-bar.hbs', {type: 'template', name: 'foo-bar', collection: 'routes'});
       confirm('templates/foo-bar/baz/index.hbs', {type: 'template', name: 'foo-bar/baz/index', collection: 'routes'});
-      confirm('adapters/application.js', {type: 'adapter', name: 'application', collection: 'data'});
+      confirm('adapters/application.js', {type: 'adapter', name: 'application', collection: 'models'});
       confirm('app.js', {type: 'main', name: 'main', collection: 'main'});
       confirm('index.md', { name: 'index', collection: 'main' });
       confirm('styles/app.css', { type: 'style', name: 'app', collection: 'styles' });
@@ -66,8 +66,8 @@ describe('classic engine', function() {
         'templates/post/index.hbs': 'routes/post/index/template.hbs',
         'routes/foo/bar/baz.js': 'routes/foo/bar/baz/route.js',
         'templates/foo/bar/baz.hbs': 'routes/foo/bar/baz/template.hbs',
-        'adapters/post.js': 'data/post/adapter.js',
-        'serializers/post.js': 'data/post/serializer.js',
+        'adapters/post.js': 'models/post/adapter.js',
+        'serializers/post.js': 'models/post/serializer.js',
         'controllers/foo/bar/baz.js': 'routes/foo/bar/baz/controller.js',
         'templates/posts/post/index.hbs': 'routes/posts/post/index/template.hbs',
         'app.js': 'main.js',

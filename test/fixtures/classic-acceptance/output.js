@@ -45,7 +45,7 @@ module.exports = {
       }
     }
   },
-  'data': {
+  'models': {
     'application': {
       'adapter.js': 'application adapter',
       'serializer.js': 'application serializer'
