@@ -37,7 +37,8 @@ module.exports = {
     },
     'models': {
       'post.js': 'post model',
-      'comment.js': 'comment model'
+      'comment.js': 'comment model',
+      'tag.js': 'tag model'
     },
     'initializers': {
       'blah.js': 'blah initializer',
@@ -65,7 +66,8 @@ module.exports = {
           'index.hbs': 'posts/post/index route template',
           'edit.hbs': 'posts/post/edit route template'
         },
-        'new.hbs': 'posts/new route template'
+        'new.hbs': 'posts/new route template',
+        'show.hbs': 'posts/post/show route template'
       },
       'components': {
         'foo-bar.hbs': 'foo-bar component template'

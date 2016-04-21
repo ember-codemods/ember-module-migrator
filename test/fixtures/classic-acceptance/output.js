@@ -39,6 +39,9 @@ module.exports = {
             'route.js': 'posts/index route',
             'template.hbs': 'posts/index route template'
           },
+          'show': {
+            'template.hbs': 'posts/post/show route template'
+          },
           'post': {
             'index': {
               'controller.js': 'posts/post/index controller',
@@ -74,6 +77,9 @@ module.exports = {
           'adapter.js': 'comment adapter',
           'serializer.js': 'comment serializer',
           'model.js': 'comment model'
+        },
+        'tag': {
+          'model.js': 'tag model'
         }
       }
     }
