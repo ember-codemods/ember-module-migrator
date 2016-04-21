@@ -21,6 +21,7 @@
     "rimraf": "^2.5.2"
   },
   "dependencies": {
+    "core-object": "^2.0.0",
     "fs-extra": "^0.28.0",
     "inflection": "^1.10.0",
     "nopt": "^3.0.6",
