@@ -15,7 +15,7 @@ describe('classic engine', function() {
     });
 
     it('returns an object', function() {
-      var file = engine.fileInfoFor('components/foo-bar.js');
+      var file = engine.fileInfoFor('app/components/foo-bar.js');
 
       assert(file);
     });
