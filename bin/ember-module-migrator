@@ -12,15 +12,13 @@ var Migrator = require('../lib');
 
 var nopt = require("nopt");
 var options = {
-  'source-path' : [String, 'app'],
-  'destination-path': [String, 'src'],
+  'project-root': [String],
   'engine': [String, 'classic']
 }
 var parsed = nopt(options);
 
 var migrator = new Migrator({
-  sourceRoot: parsed['source-path'],
-  destRoot: parsed['destination-path'],
+  projectRoot: parsed['project-root'] || process.cwd(),
   engine: parsed['engine']
 });
 

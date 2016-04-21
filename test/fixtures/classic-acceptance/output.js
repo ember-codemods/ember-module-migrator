@@ -1,71 +1,73 @@
 module.exports = {
-  'main.js': 'app.js',
-  'components': {
-    'foo-bar': {
-      'component.js': 'foo-bar component',
-      'template.hbs': 'foo-bar component template'
+  'src': {
+    'main.js': 'app.js',
+    'components': {
+      'foo-bar': {
+        'component.js': 'foo-bar component',
+        'template.hbs': 'foo-bar component template'
+      },
+      'baz-derp': {
+        'component.js': 'baz-derp component',
+        'template.hbs': 'baz-derp template'
+      }
     },
-    'baz-derp': {
-      'component.js': 'baz-derp component',
-      'template.hbs': 'baz-derp template'
-    }
-  },
-  'helpers': {
-    'i18n.js': 'i18n helper',
-    'blerg.js': 'blerg helper'
-  },
-  'routes': {
-    'index': {
-      'controller.js': 'index controller',
-      'route.js': 'index route',
-      'template.hbs': 'index route template'
+    'helpers': {
+      'i18n.js': 'i18n helper',
+      'blerg.js': 'blerg helper'
     },
-    'posts': {
+    'routes': {
       'index': {
-        'controller.js': 'posts/index controller',
-        'route.js': 'posts/index route',
-        'template.hbs': 'posts/index route template'
+        'controller.js': 'index controller',
+        'route.js': 'index route',
+        'template.hbs': 'index route template'
+      },
+      'posts': {
+        'index': {
+          'controller.js': 'posts/index controller',
+          'route.js': 'posts/index route',
+          'template.hbs': 'posts/index route template'
+        },
+        'post': {
+          'index': {
+            'controller.js': 'posts/post/index controller',
+            'route.js': 'posts/post/index route',
+            'template.hbs': 'posts/post/index route template'
+          },
+          'edit': {
+            'controller.js': 'posts/post/edit controller',
+            'route.js': 'posts/post/edit route',
+            'template.hbs': 'posts/post/edit route template'
+          }
+        },
+        'new': {
+          'controller.js': 'posts/new controller',
+          'route.js': 'posts/new route',
+          'template.hbs': 'posts/new route template'
+        }
+      }
+    },
+    'models': {
+      'application': {
+        'adapter.js': 'application adapter',
+        'serializer.js': 'application serializer'
       },
       'post': {
-        'index': {
-          'controller.js': 'posts/post/index controller',
-          'route.js': 'posts/post/index route',
-          'template.hbs': 'posts/post/index route template'
-        },
-        'edit': {
-          'controller.js': 'posts/post/edit controller',
-          'route.js': 'posts/post/edit route',
-          'template.hbs': 'posts/post/edit route template'
-        }
+        'adapter.js': 'post adapter',
+        'serializer.js': 'post serializer',
+        'model.js': 'post model'
       },
-      'new': {
-        'controller.js': 'posts/new controller',
-        'route.js': 'posts/new route',
-        'template.hbs': 'posts/new route template'
+      'comment': {
+        'adapter.js': 'comment adapter',
+        'serializer.js': 'comment serializer',
+        'model.js': 'comment model'
       }
-    }
-  },
-  'models': {
-    'application': {
-      'adapter.js': 'application adapter',
-      'serializer.js': 'application serializer'
     },
-    'post': {
-      'adapter.js': 'post adapter',
-      'serializer.js': 'post serializer',
-      'model.js': 'post model'
+    'initializers': {
+      'blah.js': 'blah initializer',
+      'derp.js': 'derp initializer'
     },
-    'comment': {
-      'adapter.js': 'comment adapter',
-      'serializer.js': 'comment serializer',
-      'model.js': 'comment model'
+    'instance-initializers': {
+      'blammo.js': 'blammo instance initializer'
     }
-  },
-  'initializers': {
-    'blah.js': 'blah initializer',
-    'derp.js': 'derp initializer'
-  },
-  'instance-initializers': {
-    'blammo.js': 'blammo instance initializer'
   }
 };

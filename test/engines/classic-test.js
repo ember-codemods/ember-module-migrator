@@ -5,18 +5,13 @@ var fse = require('fs-extra');
 var Migrator = require('../../lib');
 
 describe('classic engine', function() {
-  it('can be created with a source and destination', function() {
-    var engine = new Migrator('app', 'src');
-
-    assert(engine.source === 'app');
-    assert(engine.dest === 'src');
-  });
-
   describe('fileInfoFor', function() {
     var engine;
 
     beforeEach(function() {
-      engine = new Migrator('app', 'src');
+      engine = new Migrator({
+        projectRoot: '.'
+      });
     });
 
     it('returns an object', function() {
@@ -39,45 +34,45 @@ describe('classic engine', function() {
         });
       }
 
-      confirm('components/foo-bar.js', {type: 'component', name: 'foo-bar', collection: 'components'});
-      confirm('components/foo-bar/component.js', {type: 'component', name: 'foo-bar', collection: 'components'});
-      confirm('templates/components/foo-bar.hbs', {type: 'template', name: 'foo-bar', collection: 'components'});
-      confirm('components/foo-bar/template.hbs', {type: 'template', name: 'foo-bar', collection: 'components'});
-      confirm('routes/foo-bar.js', {type: 'route', name: 'foo-bar', collection: 'routes'});
-      confirm('routes/foo-bar/baz/index.js', {type: 'route', name: 'foo-bar/baz/index', collection: 'routes'});
-      confirm('templates/foo-bar.hbs', {type: 'template', name: 'foo-bar', collection: 'routes'});
-      confirm('templates/foo-bar/baz/index.hbs', {type: 'template', name: 'foo-bar/baz/index', collection: 'routes'});
-      confirm('adapters/application.js', {type: 'adapter', name: 'application', collection: 'models'});
-      confirm('app.js', {type: 'main', name: 'main', collection: 'main'});
-      confirm('index.md', { name: 'index', collection: 'main' });
-      confirm('styles/app.css', { type: 'style', name: 'app', collection: 'styles' });
-      confirm('styles/components/badges.css', { type: 'style', name: 'components/badges', collection: 'styles' });
-      confirm('mixins/foo/bar.js', { type: 'util', name: 'foo/bar', collection: 'utils' });
+      confirm('app/components/foo-bar.js', {type: 'component', name: 'foo-bar', collection: 'components'});
+      confirm('app/components/foo-bar/component.js', {type: 'component', name: 'foo-bar', collection: 'components'});
+      confirm('app/templates/components/foo-bar.hbs', {type: 'template', name: 'foo-bar', collection: 'components'});
+      confirm('app/components/foo-bar/template.hbs', {type: 'template', name: 'foo-bar', collection: 'components'});
+      confirm('app/routes/foo-bar.js', {type: 'route', name: 'foo-bar', collection: 'routes'});
+      confirm('app/routes/foo-bar/baz/index.js', {type: 'route', name: 'foo-bar/baz/index', collection: 'routes'});
+      confirm('app/templates/foo-bar.hbs', {type: 'template', name: 'foo-bar', collection: 'routes'});
+      confirm('app/templates/foo-bar/baz/index.hbs', {type: 'template', name: 'foo-bar/baz/index', collection: 'routes'});
+      confirm('app/adapters/application.js', {type: 'adapter', name: 'application', collection: 'models'});
+      confirm('app/app.js', {type: 'main', name: 'main', collection: 'main'});
+      confirm('app/index.md', { name: 'index', collection: 'main' });
+      confirm('app/styles/app.css', { type: 'style', name: 'app', collection: 'styles' });
+      confirm('app/styles/components/badges.css', { type: 'style', name: 'components/badges', collection: 'styles' });
+      confirm('app/mixins/foo/bar.js', { type: 'util', name: 'foo/bar', collection: 'utils' });
 
     });
 
     describe('file info destinations', function() {
       var mappings = {
-        'components/foo-bar.js': 'components/foo-bar/component.js',
-        'components/qux-derp/component.js': 'components/qux-derp/component.js',
-        'templates/components/foo-bar.hbs': 'components/foo-bar/template.hbs',
-        'components/qux-derp/template.hbs': 'components/qux-derp/template.hbs',
-        'routes/post/index.js': 'routes/post/index/route.js',
-        'templates/post/index.hbs': 'routes/post/index/template.hbs',
-        'routes/foo/bar/baz.js': 'routes/foo/bar/baz/route.js',
-        'templates/foo/bar/baz.hbs': 'routes/foo/bar/baz/template.hbs',
-        'adapters/post.js': 'models/post/adapter.js',
-        'serializers/post.js': 'models/post/serializer.js',
-        'controllers/foo/bar/baz.js': 'routes/foo/bar/baz/controller.js',
-        'templates/posts/post/index.hbs': 'routes/posts/post/index/template.hbs',
-        'app.js': 'main.js',
-        'router.js': 'router.js',
-        'index.html': 'index.html',
-        'styles/app.css': 'styles/app.css',
-        'styles/components/badges.css': 'styles/components/badges.css',
-        'mirage/config.js': 'mirage/config.js',
-        'mirage/factories/foo.js': 'mirage/factories/foo.js',
-        'mixins/foo/bar.js': 'utils/mixins/foo/bar.js'
+        'app/components/foo-bar.js': 'src/components/foo-bar/component.js',
+        'app/components/qux-derp/component.js': 'src/components/qux-derp/component.js',
+        'app/templates/components/foo-bar.hbs': 'src/components/foo-bar/template.hbs',
+        'app/components/qux-derp/template.hbs': 'src/components/qux-derp/template.hbs',
+        'app/routes/post/index.js': 'src/routes/post/index/route.js',
+        'app/templates/post/index.hbs': 'src/routes/post/index/template.hbs',
+        'app/routes/foo/bar/baz.js': 'src/routes/foo/bar/baz/route.js',
+        'app/templates/foo/bar/baz.hbs': 'src/routes/foo/bar/baz/template.hbs',
+        'app/adapters/post.js': 'src/models/post/adapter.js',
+        'app/serializers/post.js': 'src/models/post/serializer.js',
+        'app/controllers/foo/bar/baz.js': 'src/routes/foo/bar/baz/controller.js',
+        'app/templates/posts/post/index.hbs': 'src/routes/posts/post/index/template.hbs',
+        'app/app.js': 'src/main.js',
+        'app/router.js': 'src/router.js',
+        'app/index.html': 'src/index.html',
+        'app/styles/app.css': 'src/styles/app.css',
+        'app/styles/components/badges.css': 'src/styles/components/badges.css',
+        'app/mirage/config.js': 'src/mirage/config.js',
+        'app/mirage/factories/foo.js': 'src/mirage/factories/foo.js',
+        'app/mixins/foo/bar.js': 'src/utils/mixins/foo/bar.js'
       };
 
       function confirm(src, expected) {
@@ -99,8 +94,7 @@ describe('classic engine', function() {
     var tmpPath = 'tmp/process-files';
 
     beforeEach(function() {
-      fse.mkdirsSync(tmpPath + '/app');
-      fse.mkdirsSync(tmpPath + '/src');
+      fse.mkdirsSync(tmpPath);
     });
 
     afterEach(function() {
@@ -111,13 +105,15 @@ describe('classic engine', function() {
       var input = require('../fixtures/classic-acceptance/input');
       var expected = require('../fixtures/classic-acceptance/output');
 
-      fixturify.writeSync(tmpPath + '/app', input);
+      fixturify.writeSync(tmpPath, input);
 
-      var engine = new Migrator(tmpPath + '/app', tmpPath + '/src');
+      var engine = new Migrator({
+        projectRoot: tmpPath
+      });
 
       return engine.processFiles()
         .then(function() {
-          var actual = fixturify.readSync(tmpPath + '/src');
+          var actual = fixturify.readSync(tmpPath);
 
           assertDiff.deepEqual(actual, expected);
         });
