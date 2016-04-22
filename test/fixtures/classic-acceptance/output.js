@@ -11,7 +11,7 @@ module.exports = {
       }
     },
     'ui': {
-      'globals': {
+      'hbs': {
         'foo-bar': {
           'component.js': 'foo-bar component',
           'template.hbs': 'foo-bar component template'
