@@ -43,8 +43,9 @@ describe('classic engine', function() {
       confirm('app/templates/foo-bar.hbs', {type: 'template', name: 'foo-bar', collection: 'routes', collectionGroup: 'ui'});
       confirm('app/templates/foo-bar/baz/index.hbs', {type: 'template', name: 'foo-bar/baz/index', collection: 'routes', collectionGroup: 'ui'});
       confirm('app/adapters/application.js', {type: 'adapter', name: 'application', collection: 'models', collectionGroup: 'data' });
-      confirm('app/app.js', {type: 'main', name: 'main', collection: 'main', collectionGroup: ''});
-      confirm('app/index.md', { name: 'index', collection: 'main', collectionGroup: '' });
+      confirm('app/app.js', {type: 'main', name: 'main', collection: '', collectionGroup: ''});
+      confirm('app/router.js', {type: 'main', name: 'router', collection: 'main', collectionGroup: ''});
+      confirm('app/index.md', { name: 'index', collection: '', collectionGroup: '' });
       confirm('app/styles/app.css', { type: 'style', name: 'app', collection: 'styles', collectionGroup: 'ui' });
       confirm('app/styles/components/badges.css', { type: 'style', name: 'components/badges', collection: 'styles', collectionGroup: 'ui' });
       confirm('app/mixins/foo/bar.js', { type: 'util', name: 'foo/bar', collection: 'utils' });
@@ -66,10 +67,10 @@ describe('classic engine', function() {
         'app/controllers/foo/bar/baz.js': 'src/ui/routes/foo/bar/baz/controller.js',
         'app/templates/posts/post/index.hbs': 'src/ui/routes/posts/post/index/template.hbs',
         'app/app.js': 'src/main.js',
-        'app/router.js': 'src/init/router.js',
+        'app/router.js': 'src/main/router.js',
         'app/README.md': 'src/README.md',
         'app/_config.yml': 'src/_config.yml',
-        'app/index.html': 'src/init/index.html',
+        'app/index.html': 'src/main/index.html',
         'app/styles/app.css': 'src/ui/styles/app.css',
         'app/styles/components/badges.css': 'src/ui/styles/components/badges.css',
         'app/mirage/config.js': 'src/mirage/config.js',

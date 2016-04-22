@@ -1,6 +1,8 @@
 module.exports = {
   'app': {
     'app.js': 'app.js',
+    'router.js': 'router.js',
+    'index.html': 'index.html contents',
     'components': {
       'foo-bar.js': 'foo-bar component',
       'baz-derp': {

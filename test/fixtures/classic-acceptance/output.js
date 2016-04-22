@@ -10,6 +10,10 @@ module.exports = {
         'blammo.js': 'blammo instance initializer'
       }
     },
+    'main': {
+      'router.js': 'router.js',
+      'index.html': 'index.html contents'
+    },
     'ui': {
       'hbs': {
         'foo-bar': {
