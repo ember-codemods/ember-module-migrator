@@ -43,8 +43,8 @@ describe('classic engine', function() {
       confirm('app/templates/foo-bar.hbs', {type: 'template', name: 'foo-bar', collection: 'routes', collectionGroup: 'ui'});
       confirm('app/templates/foo-bar/baz/index.hbs', {type: 'template', name: 'foo-bar/baz/index', collection: 'routes', collectionGroup: 'ui'});
       confirm('app/adapters/application.js', {type: 'adapter', name: 'application', collection: 'models', collectionGroup: 'data' });
-      confirm('app/app.js', {type: 'main', name: 'main', collection: 'main', collectionGroup: 'core'});
-      confirm('app/index.md', { name: 'index', collection: 'main', collectionGroup: 'core' });
+      confirm('app/app.js', {type: 'main', name: 'main', collection: 'main', collectionGroup: ''});
+      confirm('app/index.md', { name: 'index', collection: 'main', collectionGroup: 'init' });
       confirm('app/styles/app.css', { type: 'style', name: 'app', collection: 'styles', collectionGroup: 'ui' });
       confirm('app/styles/components/badges.css', { type: 'style', name: 'components/badges', collection: 'styles', collectionGroup: 'ui' });
       confirm('app/mixins/foo/bar.js', { type: 'util', name: 'foo/bar', collection: 'utils' });
@@ -65,16 +65,16 @@ describe('classic engine', function() {
         'app/serializers/post.js': 'src/data/models/post/serializer.js',
         'app/controllers/foo/bar/baz.js': 'src/ui/routes/foo/bar/baz/controller.js',
         'app/templates/posts/post/index.hbs': 'src/ui/routes/posts/post/index/template.hbs',
-        'app/app.js': 'src/core/main.js',
-        'app/router.js': 'src/core/router.js',
-        'app/index.html': 'src/core/index.html',
+        'app/app.js': 'src/main.js',
+        'app/router.js': 'src/init/router.js',
+        'app/index.html': 'src/init/index.html',
         'app/styles/app.css': 'src/ui/styles/app.css',
         'app/styles/components/badges.css': 'src/ui/styles/components/badges.css',
         'app/mirage/config.js': 'src/mirage/config.js',
         'app/mirage/factories/foo.js': 'src/mirage/factories/foo.js',
         'app/mixins/foo/bar.js': 'src/utils/mixins/foo/bar.js',
-        'app/initializers/foo.js': 'src/core/initializers/foo.js',
-        'app/instance-initializers/bar.js': 'src/core/instance-initializers/bar.js'
+        'app/initializers/foo.js': 'src/init/initializers/foo.js',
+        'app/instance-initializers/bar.js': 'src/init/instance-initializers/bar.js'
       };
 
       function confirm(src, expected) {

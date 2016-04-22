@@ -1,7 +1,7 @@
 module.exports = {
   'src': {
-    'core': {
-      'main.js': 'app.js',
+    'main.js': 'app.js',
+    'init': {
       'initializers': {
         'blah.js': 'blah initializer',
         'derp.js': 'derp initializer'
