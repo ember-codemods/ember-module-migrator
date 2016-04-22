@@ -34,22 +34,22 @@ describe('classic engine', function() {
         });
       }
 
-      confirm('app/components/foo-bar.js', {type: 'component', name: 'foo-bar', collection: 'elements', collectionGroup: 'ui'});
-      confirm('app/components/foo-bar/component.js', {type: 'component', name: 'foo-bar', collection: 'elements', collectionGroup: 'ui' });
-      confirm('app/templates/components/foo-bar.hbs', {type: 'template', name: 'foo-bar', collection: 'elements', collectionGroup: 'ui'});
-      confirm('app/components/foo-bar/template.hbs', {type: 'template', name: 'foo-bar', collection: 'elements', collectionGroup: 'ui'});
-      confirm('app/routes/foo-bar.js', {type: 'route', name: 'foo-bar', collection: 'routes', collectionGroup: 'ui'});
-      confirm('app/routes/foo-bar/baz/index.js', {type: 'route', name: 'foo-bar/baz/index', collection: 'routes', collectionGroup: 'ui'});
+      confirm('app/components/foo-bar.js', {type: 'component', name: 'foo-bar', namespace: '', collection: 'elements', collectionGroup: 'ui'});
+      confirm('app/components/foo-bar/component.js', {type: 'component', name: 'foo-bar', namespace: '', collection: 'elements', collectionGroup: 'ui' });
+      confirm('app/templates/components/foo-bar.hbs', {type: 'template', name: 'foo-bar', namespace: '', collection: 'elements', collectionGroup: 'ui'});
+      confirm('app/components/foo-bar/template.hbs', {type: 'template', name: 'foo-bar', namespace: '', collection: 'elements', collectionGroup: 'ui'});
+      confirm('app/routes/foo-bar.js', {type: 'route', name: 'foo-bar', namespace: '', collection: 'routes', collectionGroup: 'ui'});
+      confirm('app/routes/foo-bar/baz/index.js', {type: 'route', name: 'index', namespace: 'foo-bar/baz', collection: 'routes', collectionGroup: 'ui'});
       confirm('app/templates/foo-bar.hbs', {type: 'template', name: 'foo-bar', collection: 'routes', collectionGroup: 'ui'});
-      confirm('app/templates/foo-bar/baz/index.hbs', {type: 'template', name: 'foo-bar/baz/index', collection: 'routes', collectionGroup: 'ui'});
-      confirm('app/adapters/application.js', {type: 'adapter', name: 'application', collection: 'models', collectionGroup: 'data' });
-      confirm('app/app.js', {type: 'main', name: 'main', collection: '', collectionGroup: ''});
-      confirm('app/router.js', {type: 'main', name: 'router', collection: 'main', collectionGroup: ''});
-      confirm('app/index.md', { name: 'index', collection: '', collectionGroup: '' });
-      confirm('app/styles/app.css', { type: 'style', name: 'app', collection: 'styles', collectionGroup: 'ui' });
-      confirm('app/styles/components/badges.css', { type: 'style', name: 'components/badges', collection: 'styles', collectionGroup: 'ui' });
-      confirm('app/mixins/foo/bar.js', { type: 'util', name: 'foo/bar', collection: 'utils' });
-      confirm('app/authorizers/oauth2.js', { type: 'authorizer', name: 'oauth2', collection: 'authorizers', collectionGroup: 'simple-auth'});
+      confirm('app/templates/foo-bar/baz/index.hbs', {type: 'template', name: 'index', namespace: 'foo-bar/baz', collection: 'routes', collectionGroup: 'ui'});
+      confirm('app/adapters/application.js', {type: 'adapter', name: 'application', namespace: '', collection: 'models', collectionGroup: 'data' });
+      confirm('app/app.js', {type: 'main', name: 'main', namespace: '', collection: '', collectionGroup: ''});
+      confirm('app/router.js', {type: 'main', name: 'router', namespace: '', collection: 'main', collectionGroup: ''});
+      confirm('app/index.md', { name: 'index', namespace: '', collection: '', collectionGroup: '' });
+      confirm('app/styles/app.css', { type: 'style', name: 'app', namespace: '', collection: 'styles', collectionGroup: 'ui' });
+      confirm('app/styles/components/badges.css', { type: 'style', name: 'badges', namespace: 'components', collection: 'styles', collectionGroup: 'ui' });
+      confirm('app/mixins/foo/bar.js', { type: 'util', name: 'bar', namespace: 'foo', collection: 'utils' });
+      confirm('app/authorizers/oauth2.js', { type: 'authorizer', name: 'oauth2', namespace: '', collection: 'authorizers', collectionGroup: 'simple-auth'});
     });
 
     describe('file info destinations', function() {
@@ -58,9 +58,9 @@ describe('classic engine', function() {
         'app/components/qux-derp/component.js': 'src/ui/elements/qux-derp/component.js',
         'app/templates/components/foo-bar.hbs': 'src/ui/elements/foo-bar/template.hbs',
         'app/components/qux-derp/template.hbs': 'src/ui/elements/qux-derp/template.hbs',
-        'app/routes/post/index.js': 'src/ui/routes/post/index.js',
+        'app/routes/post/index.js': 'src/ui/routes/post/index/route.js',
         'app/templates/post/index.hbs': 'src/ui/routes/post/index/template.hbs',
-        'app/routes/foo/bar/baz.js': 'src/ui/routes/foo/bar/baz.js',
+        'app/routes/foo/bar/baz.js': 'src/ui/routes/foo/bar/baz/route.js',
         'app/templates/foo/bar/baz.hbs': 'src/ui/routes/foo/bar/baz/template.hbs',
         'app/adapters/post.js': 'src/data/models/post/adapter.js',
         'app/serializers/post.js': 'src/data/models/post/serializer.js',
@@ -78,6 +78,8 @@ describe('classic engine', function() {
         'app/mixins/foo/bar.js': 'src/utils/mixins/foo/bar.js',
         'app/initializers/foo.js': 'src/init/initializers/foo.js',
         'app/instance-initializers/bar.js': 'src/init/instance-initializers/bar.js',
+        'app/routes/foo.js': 'src/ui/routes/foo.js',
+        'app/models/post.js': 'src/data/models/post.js',
 
         // simple auth
         'app/authorizers/oauth2.js': 'src/simple-auth/authorizers/oauth2.js'
