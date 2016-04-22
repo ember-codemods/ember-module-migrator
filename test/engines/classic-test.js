@@ -48,7 +48,7 @@ describe('classic engine', function() {
       confirm('app/styles/app.css', { type: 'style', name: 'app', collection: 'styles', collectionGroup: 'ui' });
       confirm('app/styles/components/badges.css', { type: 'style', name: 'components/badges', collection: 'styles', collectionGroup: 'ui' });
       confirm('app/mixins/foo/bar.js', { type: 'util', name: 'foo/bar', collection: 'utils' });
-
+      confirm('app/authorizers/oauth2.js', { type: 'authorizer', name: 'oauth2', collection: 'authorizers', collectionGroup: 'simple-auth'});
     });
 
     describe('file info destinations', function() {
@@ -76,7 +76,10 @@ describe('classic engine', function() {
         'app/mirage/factories/foo.js': 'src/mirage/factories/foo.js',
         'app/mixins/foo/bar.js': 'src/utils/mixins/foo/bar.js',
         'app/initializers/foo.js': 'src/init/initializers/foo.js',
-        'app/instance-initializers/bar.js': 'src/init/instance-initializers/bar.js'
+        'app/instance-initializers/bar.js': 'src/init/instance-initializers/bar.js',
+
+        // simple auth
+        'app/authorizers/oauth2.js': 'src/simple-auth/authorizers/oauth2.js'
       };
 
       function confirm(src, expected) {
