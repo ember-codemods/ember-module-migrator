@@ -15,7 +15,7 @@ module.exports = {
       'index.html': 'index.html contents'
     },
     'ui': {
-      'hbs': {
+      'elements': {
         'foo-bar': {
           'component.js': 'foo-bar component',
           'template.hbs': 'foo-bar component template'
