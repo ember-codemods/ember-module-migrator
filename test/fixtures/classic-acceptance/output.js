@@ -78,9 +78,7 @@ module.exports = {
           'serializer.js': 'comment serializer',
           'model.js': 'comment model'
         },
-        'tag': {
-          'model.js': 'tag model'
-        }
+        'tag.js': 'tag model'
       }
     }
   }
