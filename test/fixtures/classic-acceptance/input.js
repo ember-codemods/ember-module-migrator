@@ -73,5 +73,25 @@ module.exports = {
         'foo-bar.hbs': 'foo-bar component template'
       }
     }
+  },
+
+  'tests': {
+    'acceptance': {
+      'post-test.js': 'post acceptance test'
+    },
+    'unit': {
+      'routes': {
+        'posts': {
+          'index-test.js': 'posts/index unit test'
+        }
+      }
+    },
+    'integration': {
+      'routes': {
+        'posts': {
+          'index-test.js': 'posts/index integration test'
+        }
+      }
+    }
   }
 };

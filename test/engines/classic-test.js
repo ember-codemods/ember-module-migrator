@@ -50,6 +50,9 @@ describe('classic engine', function() {
       confirm('app/styles/components/badges.css', { type: 'style', name: 'badges', namespace: 'components', collection: 'styles', collectionGroup: 'ui' });
       confirm('app/mixins/foo/bar.js', { type: 'util', name: 'bar', namespace: 'foo', collection: 'utils' });
       confirm('app/authorizers/oauth2.js', { type: 'authorizer', name: 'oauth2', namespace: '', collection: 'authorizers', collectionGroup: 'simple-auth'});
+
+      // tests
+      confirm('tests/unit/routes/foo-bar-test.js', { type: 'route-unit-test', name: 'foo-bar', collection: 'routes', collectionGroup: 'ui'});
     });
 
     describe('file info destinations', function() {
@@ -80,6 +83,9 @@ describe('classic engine', function() {
         'app/instance-initializers/bar.js': 'src/init/instance-initializers/bar.js',
         'app/routes/foo.js': 'src/ui/routes/foo.js',
         'app/models/post.js': 'src/data/models/post.js',
+
+        // tests
+        'tests/unit/routes/foo-bar-test.js': 'src/ui/routes/foo-bar/route-unit-test.js',
 
         // simple auth
         'app/authorizers/oauth2.js': 'src/simple-auth/authorizers/oauth2.js'
