@@ -56,6 +56,7 @@ describe('classic engine', function() {
       confirm('tests/unit/mixins/bar-test.js', { type: 'mixin-unit-test', name: 'bar', collection: 'utils', collectionGroup: ''});
       confirm('tests/unit/services/foo-test.js', { type: 'service-unit-test', name: 'foo', collection: 'services', collectionGroup: ''});
       confirm('tests/unit/utils/foo-test.js', { type: 'util-unit-test', name: 'foo', collection: 'utils', collectionGroup: ''});
+      confirm('tests/unit/validators/foo-test.js', { type: 'validator-unit-test', name: 'foo', collection: 'validators', collectionGroup: ''});
     });
 
     describe('file info destinations', function() {

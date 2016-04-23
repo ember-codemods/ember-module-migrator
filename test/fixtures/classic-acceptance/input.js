@@ -78,6 +78,9 @@ module.exports = {
     },
     'services': {
       'ajax.js': 'ajax service'
+    },
+    'validators': {
+      'blahzorz.js': 'blahzorz validator'
     }
   },
 
@@ -96,6 +99,9 @@ module.exports = {
         'posts': {
           'index-test.js': 'posts/index unit test'
         }
+      },
+      'validators': {
+        'blahzorz-test.js': 'blahzorz validator test'
       }
     },
     'integration': {
