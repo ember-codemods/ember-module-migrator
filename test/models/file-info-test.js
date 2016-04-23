@@ -38,12 +38,20 @@ describe('file-info model', function() {
       assert(adapter.destRelativePath === 'src/data/models/foo/adapter.js');
     });
 
-    it('uses <name>/<ext> instead of <name>.<type>.<ext> when a test and main file exist', function() {
+    it('uses <name>/<ext> instead of <name>.<type>.<ext> when a model and a test exist', function() {
       var model = engine.fileInfoFor('app/models/foo.js');
       var test = engine.fileInfoFor('tests/integration/models/foo-test.js');
 
       assert(model.destRelativePath === 'src/data/models/foo/model.js');
       assert(test.destRelativePath === 'src/data/models/foo/model-integration-test.js');
+    });
+
+    it('uses <name>/<ext> instead of <name>.<type>.<ext> when a mixin and a test exist', function() {
+      var model = engine.fileInfoFor('app/mixins/foo.js');
+      var test = engine.fileInfoFor('tests/unit/mixins/foo-test.js');
+
+      assert(model.destRelativePath === 'src/utils/mixins/foo/mixin.js');
+      assert(test.destRelativePath === 'src/utils/mixins/foo/mixin-unit-test.js');
     });
   });
 });
