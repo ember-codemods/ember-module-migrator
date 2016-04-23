@@ -4,6 +4,8 @@ var fixturify = require('fixturify');
 var fse = require('fs-extra');
 var Migrator = require('../../lib');
 
+assertDiff.options.strict = true;
+
 describe('classic engine', function() {
   describe('fileInfoFor', function() {
     var engine;
