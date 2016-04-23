@@ -37,5 +37,13 @@ describe('file-info model', function() {
       assert(model.destRelativePath === 'src/data/models/foo/model.js');
       assert(adapter.destRelativePath === 'src/data/models/foo/adapter.js');
     });
+
+    it('uses <name>/<ext> instead of <name>.<type>.<ext> when a test and main file exist', function() {
+      var model = engine.fileInfoFor('app/models/foo.js');
+      var test = engine.fileInfoFor('tests/integration/models/foo-test.js');
+
+      assert(model.destRelativePath === 'src/data/models/foo/model.js');
+      assert(test.destRelativePath === 'src/data/models/foo/model-integration-test.js');
+    });
   });
 });

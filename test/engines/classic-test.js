@@ -48,11 +48,13 @@ describe('classic engine', function() {
       confirm('app/index.md', { name: 'index', namespace: '', collection: '', collectionGroup: '' });
       confirm('app/styles/app.css', { type: 'style', name: 'app', namespace: '', collection: 'styles', collectionGroup: 'ui' });
       confirm('app/styles/components/badges.css', { type: 'style', name: 'badges', namespace: 'components', collection: 'styles', collectionGroup: 'ui' });
-      confirm('app/mixins/foo/bar.js', { type: 'util', name: 'bar', namespace: 'foo', collection: 'utils' });
+      confirm('app/mixins/foo/bar.js', { type: 'util', name: 'bar', namespace: 'mixins/foo', collection: 'utils' });
       confirm('app/authorizers/oauth2.js', { type: 'authorizer', name: 'oauth2', namespace: '', collection: 'authorizers', collectionGroup: 'simple-auth'});
 
       // tests
       confirm('tests/unit/routes/foo-bar-test.js', { type: 'route-unit-test', name: 'foo-bar', collection: 'routes', collectionGroup: 'ui'});
+      confirm('tests/unit/mixins/bar-test.js', { type: 'mixin-unit-test', name: 'bar', collection: 'utils', collectionGroup: ''});
+      confirm('tests/unit/services/foo-test.js', { type: 'service-unit-test', name: 'foo', collection: 'services', collectionGroup: ''});
     });
 
     describe('file info destinations', function() {
@@ -86,6 +88,9 @@ describe('classic engine', function() {
 
         // tests
         'tests/unit/routes/foo-bar-test.js': 'src/ui/routes/foo-bar/route-unit-test.js',
+        'tests/unit/.gitkeep': null,
+        'tests/unit/mixins/bar-test.js': 'src/utils/mixins/bar/mixin-unit-test.js',
+        'tests/unit/services/foo-test.js': 'src/services/foo/service-unit-test.js',
 
         // simple auth
         'app/authorizers/oauth2.js': 'src/simple-auth/authorizers/oauth2.js'
@@ -95,7 +100,11 @@ describe('classic engine', function() {
         it('should map ' + src + ' to ' + expected, function() {
           var file = engine.fileInfoFor(src);
 
-          assert(file.destRelativePath === expected);
+          if (expected === null) {
+            assert(!file);
+          } else {
+            assert(file.destRelativePath === expected);
+          }
         });
       }
 
