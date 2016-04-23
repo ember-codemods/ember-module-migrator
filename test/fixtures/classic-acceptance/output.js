@@ -37,7 +37,9 @@ module.exports = {
           'index': {
             'controller.js': 'posts/index controller',
             'route.js': 'posts/index route',
-            'template.hbs': 'posts/index route template'
+            'template.hbs': 'posts/index route template',
+            'route-unit-test.js': 'posts/index unit test',
+            'route-integration-test.js': 'posts/index integration test'
           },
           'show': {
             'template.hbs': 'posts/post/show route template'
@@ -80,6 +82,25 @@ module.exports = {
         },
         'tag.js': 'tag model'
       }
+    },
+    'services': {
+      'ajax': {
+        'service-unit-test.js': 'ajax service unit test',
+        'service.js': 'ajax service'
+      }
+    },
+    'utils': {
+      'mixins': {
+        'foo': {
+          'mixin.js': 'foo mixin',
+          'mixin-unit-test.js': 'foo mixin unit test'
+        }
+      }
+    }
+  },
+  'tests': {
+    'acceptance': {
+      'post-test.js': 'post acceptance test'
     }
   }
 };

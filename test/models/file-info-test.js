@@ -37,5 +37,37 @@ describe('file-info model', function() {
       assert(model.destRelativePath === 'src/data/models/foo/model.js');
       assert(adapter.destRelativePath === 'src/data/models/foo/adapter.js');
     });
+
+    it('uses <name>/<ext> instead of <name>.<type>.<ext> when a model and a test exist', function() {
+      var model = engine.fileInfoFor('app/models/foo.js');
+      var test = engine.fileInfoFor('tests/integration/models/foo-test.js');
+
+      assert(model.destRelativePath === 'src/data/models/foo/model.js');
+      assert(test.destRelativePath === 'src/data/models/foo/model-integration-test.js');
+    });
+
+    it('uses <name>/<ext> instead of <name>.<type>.<ext> when a mixin and a test exist', function() {
+      var model = engine.fileInfoFor('app/mixins/foo.js');
+      var test = engine.fileInfoFor('tests/unit/mixins/foo-test.js');
+
+      assert(model.destRelativePath === 'src/utils/mixins/foo/mixin.js');
+      assert(test.destRelativePath === 'src/utils/mixins/foo/mixin-unit-test.js');
+    });
+
+    it('uses <name>/<ext> instead of <name>.<ext> when a service and a test exist', function() {
+      var model = engine.fileInfoFor('app/services/foo.js');
+      var test = engine.fileInfoFor('tests/integration/services/foo-test.js');
+
+      assert(model.destRelativePath === 'src/services/foo/service.js');
+      assert(test.destRelativePath === 'src/services/foo/service-integration-test.js');
+    });
+
+    it('uses <name>/<ext> instead of <name>.<ext> when a util and a test exist', function() {
+      var util = engine.fileInfoFor('app/utils/foo.js');
+      var test = engine.fileInfoFor('tests/unit/utils/foo-test.js');
+
+      assert(util.destRelativePath === 'src/utils/foo/util.js');
+      assert(test.destRelativePath === 'src/utils/foo/util-unit-test.js');
+    });
   });
 });

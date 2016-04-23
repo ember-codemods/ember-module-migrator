@@ -72,6 +72,38 @@ module.exports = {
       'components': {
         'foo-bar.hbs': 'foo-bar component template'
       }
+    },
+    'mixins': {
+      'foo.js': 'foo mixin'
+    },
+    'services': {
+      'ajax.js': 'ajax service'
+    }
+  },
+
+  'tests': {
+    'acceptance': {
+      'post-test.js': 'post acceptance test'
+    },
+    'unit': {
+      'mixins': {
+        'foo-test.js': 'foo mixin unit test'
+      },
+      'service': {
+        'ajax-test.js': 'ajax service unit test'
+      },
+      'routes': {
+        'posts': {
+          'index-test.js': 'posts/index unit test'
+        }
+      }
+    },
+    'integration': {
+      'routes': {
+        'posts': {
+          'index-test.js': 'posts/index integration test'
+        }
+      }
     }
   }
 };
