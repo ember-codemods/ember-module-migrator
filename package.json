@@ -1,5 +1,5 @@
 {
-  "name": "ember-module-migration",
+  "name": "ember-module-migrator",
   "version": "0.5.1",
   "description": "Migration script for ember-cli apps.",
   "main": "lib/index.js",
@@ -27,5 +27,16 @@
     "nopt": "^3.0.6",
     "rsvp": "^3.2.1",
     "walk-sync": "^0.2.6"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rwjblue/ember-module-migrator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rwjblue/ember-module-migrator/issues"
+  },
+  "homepage": "https://github.com/rwjblue/ember-module-migrator#readme"
 }
