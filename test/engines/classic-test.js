@@ -55,6 +55,7 @@ describe('classic engine', function() {
       confirm('tests/unit/routes/foo-bar-test.js', { type: 'route-unit-test', name: 'foo-bar', collection: 'routes', collectionGroup: 'ui'});
       confirm('tests/unit/mixins/bar-test.js', { type: 'mixin-unit-test', name: 'bar', collection: 'utils', collectionGroup: ''});
       confirm('tests/unit/services/foo-test.js', { type: 'service-unit-test', name: 'foo', collection: 'services', collectionGroup: ''});
+      confirm('tests/unit/utils/foo-test.js', { type: 'util-unit-test', name: 'foo', collection: 'utils', collectionGroup: ''});
     });
 
     describe('file info destinations', function() {
@@ -91,6 +92,7 @@ describe('classic engine', function() {
         'tests/unit/.gitkeep': null,
         'tests/unit/mixins/bar-test.js': 'src/utils/mixins/bar/mixin-unit-test.js',
         'tests/unit/services/foo-test.js': 'src/services/foo/service-unit-test.js',
+        'tests/unit/utils/some-thing-test.js': 'src/utils/some-thing/util-unit-test.js',
 
         // simple auth
         'app/authorizers/oauth2.js': 'src/simple-auth/authorizers/oauth2.js'
