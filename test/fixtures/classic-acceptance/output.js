@@ -96,6 +96,12 @@ module.exports = {
           'mixin-unit-test.js': 'foo mixin unit test'
         }
       }
+    },
+    'validators': {
+      'blahzorz': {
+        'validator.js': 'blahzorz validator',
+        'validator-unit-test.js': 'blahzorz validator test'
+      }
     }
   },
   'tests': {
