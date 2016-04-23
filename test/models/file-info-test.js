@@ -53,5 +53,13 @@ describe('file-info model', function() {
       assert(model.destRelativePath === 'src/utils/mixins/foo/mixin.js');
       assert(test.destRelativePath === 'src/utils/mixins/foo/mixin-unit-test.js');
     });
+
+    it('uses <name>/<ext> instead of <name>.<ext> when a service and a test exist', function() {
+      var model = engine.fileInfoFor('app/services/foo.js');
+      var test = engine.fileInfoFor('tests/integration/services/foo-test.js');
+
+      assert(model.destRelativePath === 'src/services/foo/service.js');
+      assert(test.destRelativePath === 'src/services/foo/service-integration-test.js');
+    });
   });
 });
