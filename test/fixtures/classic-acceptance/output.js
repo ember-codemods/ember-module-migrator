@@ -82,6 +82,20 @@ module.exports = {
         },
         'tag.js': 'tag model'
       }
+    },
+    'services': {
+      'ajax': {
+        'service-unit-test.js': 'ajax service unit test',
+        'service.js': 'ajax service'
+      }
+    },
+    'utils': {
+      'mixins': {
+        'foo': {
+          'mixin.js': 'foo mixin',
+          'mixin-unit-test.js': 'foo mixin unit test'
+        }
+      }
     }
   },
   'tests': {
