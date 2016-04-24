@@ -20,7 +20,8 @@ module.exports = {
     },
     'helpers': {
       'i18n.js': 'i18n helper',
-      'blerg.js': 'blerg helper'
+      'blerg.js': 'blerg helper',
+      'main-greeting-text.js': 'main-greeting-text helper'
     },
     'routes': {
       'index.js': 'index route',
@@ -67,7 +68,7 @@ module.exports = {
       }
     },
     'templates': {
-      'index.hbs': 'index route template',
+      'index.hbs': 'index route template {{main-greeting-text}}',
       'posts': {
         'index.hbs': 'posts/index route template',
         'post': {

@@ -89,6 +89,15 @@ describe('file-info model', function() {
         assert(component.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/component.js');
       });
 
+      it('detecting private / single use helper', function() {
+        var routeTemplate = engine.fileInfoFor('app/templates/posts/index.hbs');
+        var helper = engine.fileInfoFor('app/helpers/bar.js');
+
+        routeTemplate.registerRenderableUsage('bar');
+
+        assert(helper.destRelativePath === 'src/ui/routes/posts/index/-elements/bar.js');
+      });
+
       it('detecting private / single use components (component only)', function() {
         var routeTemplate = engine.fileInfoFor('app/templates/posts/index.hbs');
         var component = engine.fileInfoFor('app/components/foo-bar.js');

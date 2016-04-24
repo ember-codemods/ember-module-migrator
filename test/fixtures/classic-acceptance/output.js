@@ -29,9 +29,12 @@ module.exports = {
       },
       'routes': {
         'index': {
+          '-elements': {
+            'main-greeting-text.js': 'main-greeting-text helper'
+          },
           'controller.js': 'index controller',
           'route.js': 'index route',
-          'template.hbs': 'index route template'
+          'template.hbs': 'index route template {{main-greeting-text}}'
         },
         'posts': {
           'index': {
