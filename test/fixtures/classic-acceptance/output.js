@@ -50,7 +50,8 @@ module.exports = {
                 'post-display': {
                   'post-footer': {
                     'component.js': 'post-footer component',
-                    'template.hbs': 'post-footer component template'
+                    'template.hbs': 'post-footer component template',
+                    'component-integration-test.js': 'post-footer integration test'
                   },
                   'component.js': 'post-display component',
                   'template.hbs': 'post-display component template\n{{post-footer}}',

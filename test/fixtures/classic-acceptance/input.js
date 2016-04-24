@@ -119,7 +119,8 @@ module.exports = {
         }
       },
       'components': {
-        'post-display-test.js': 'post-display component integration test'
+        'post-display-test.js': 'post-display component integration test',
+        'post-footer-test.js': 'post-footer integration test'
       }
     }
   }
