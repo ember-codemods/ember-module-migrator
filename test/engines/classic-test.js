@@ -1,3 +1,4 @@
+var path = require('path');
 var assert = require('power-assert');
 var assertDiff = require('assert-diff');
 var fixturify = require('fixturify');
@@ -120,8 +121,9 @@ describe('classic engine', function() {
     });
   });
 
-  describe('processFiles', function() {
+  describe('acceptance', function() {
     var tmpPath = 'tmp/process-files';
+    var fixturesPath = path.resolve(__dirname, '../fixtures');
 
     beforeEach(function() {
       fse.mkdirsSync(tmpPath);
@@ -131,22 +133,27 @@ describe('classic engine', function() {
       fse.removeSync(tmpPath);
     });
 
-    it('should be able to migrate a file structure', function() {
-      var input = require('../fixtures/classic-acceptance/input');
-      var expected = require('../fixtures/classic-acceptance/output');
+    var entries = fse.readdirSync(fixturesPath);
 
-      fixturify.writeSync(tmpPath, input);
+    entries.forEach(function(entry) {
+      it('should migrate ' + entry + ' fixture properly', function() {
+        var fixturePath = path.join(fixturesPath, entry);
+        var input = require(fixturePath + '/input');
+        var expected = require(fixturePath + '/output');
 
-      var engine = new Migrator({
-        projectRoot: tmpPath
-      });
+        fixturify.writeSync(tmpPath, input);
 
-      return engine.processFiles()
-        .then(function() {
-          var actual = fixturify.readSync(tmpPath);
-
-          assertDiff.deepEqual(actual, expected);
+        var engine = new Migrator({
+          projectRoot: tmpPath
         });
+
+        return engine.processFiles()
+          .then(function() {
+            var actual = fixturify.readSync(tmpPath);
+
+            assertDiff.deepEqual(actual, expected);
+          });
+      });
     });
   });
 });
