@@ -42,10 +42,13 @@ describe('template-file-info', function() {
     confirmDetectsRenderables('{{#foo-bar}}{{/foo-bar}}', ['foo-bar']);
     confirmDetectsRenderables('{{foo-bar derp="blammo"}}', ['foo-bar']);
     confirmDetectsRenderables('<div>{{#foo-bar}}{{huz-zah blah="lolol"}}{{/foo-bar}}</div>', ['foo-bar', 'huz-zah']);
+    confirmDetectsRenderables('{{yield (hash foo=(build-thing) bar=(component "bar-baz"))}}', ['yield', 'hash', 'build-thing', 'component', 'bar-baz']);
 
     // helpers
     confirmDetectsRenderables('{{t "some thing"}}', ['t']);
+    confirmDetectsRenderables('{{t "some thing"}}{{t "whopdee doo"}}', ['t']);
     confirmDetectsRenderables('{{derp blah="haha"}}', ['derp']);
     confirmDetectsRenderables('<div data-foo={{derp blah="haha"}}></div>', ['derp']);
+
   });
 });
