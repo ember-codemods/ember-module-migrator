@@ -72,9 +72,15 @@ module.exports = {
             }
           },
           'new': {
+            '-elements': {
+              'show-default-title': {
+                'helper.js': 'show-default-title helper',
+                'helper-integration-test.js': 'show-default-title helper integration test'
+              }
+            },
             'controller.js': 'posts/new controller',
             'route.js': 'posts/new route',
-            'template.hbs': 'posts/new route template'
+            'template.hbs': 'posts/new route template {{show-default-title}}'
           }
         }
       }

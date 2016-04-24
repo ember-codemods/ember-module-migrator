@@ -21,7 +21,8 @@ module.exports = {
     'helpers': {
       'i18n.js': 'i18n helper',
       'blerg.js': 'blerg helper',
-      'main-greeting-text.js': 'main-greeting-text helper'
+      'main-greeting-text.js': 'main-greeting-text helper',
+      'show-default-title.js': 'show-default-title helper'
     },
     'routes': {
       'index.js': 'index route',
@@ -75,7 +76,7 @@ module.exports = {
           'index.hbs': 'posts/post/index route template\n{{post-display}}',
           'edit.hbs': 'posts/post/edit route template'
         },
-        'new.hbs': 'posts/new route template',
+        'new.hbs': 'posts/new route template {{show-default-title}}',
         'show.hbs': 'posts/post/show route template'
       },
       'components': {
@@ -122,6 +123,9 @@ module.exports = {
       'components': {
         'post-display-test.js': 'post-display component integration test',
         'post-footer-test.js': 'post-footer integration test'
+      },
+      'helpers': {
+        'show-default-title-test.js': 'show-default-title helper integration test'
       }
     }
   }
