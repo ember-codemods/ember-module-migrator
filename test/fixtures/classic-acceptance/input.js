@@ -113,6 +113,9 @@ module.exports = {
         'posts': {
           'index-test.js': 'posts/index integration test'
         }
+      },
+      'components': {
+        'post-display-test.js': 'post-display component integration test'
       }
     }
   }

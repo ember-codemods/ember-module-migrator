@@ -49,7 +49,8 @@ module.exports = {
               '-elements': {
                 'post-display': {
                   'component.js': 'post-display component',
-                  'template.hbs': 'post-display component template'
+                  'template.hbs': 'post-display component template',
+                  'component-integration-test.js': 'post-display component integration test'
                 }
               },
               'controller.js': 'posts/post/index controller',
