@@ -69,5 +69,34 @@ describe('file-info model', function() {
       assert(util.destRelativePath === 'src/utils/foo/util.js');
       assert(test.destRelativePath === 'src/utils/foo/util-unit-test.js');
     });
+
+    it('detecting private / single use components (template only)', function() {
+      var routeTemplate = engine.fileInfoFor('app/templates/posts/index.hbs');
+      var componentTemplate = engine.fileInfoFor('app/templates/components/foo-bar.hbs');
+
+      routeTemplate.registerRenderableUsage('foo-bar');
+
+      assert(componentTemplate.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/template.hbs');
+    });
+
+    it('detecting private / single use components (component only)', function() {
+      var routeTemplate = engine.fileInfoFor('app/templates/posts/index.hbs');
+      var component = engine.fileInfoFor('app/components/foo-bar.js');
+
+      routeTemplate.registerRenderableUsage('foo-bar');
+
+      assert(component.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/component.js');
+    });
+
+    it('detecting private / single use components (component only)', function() {
+      var routeTemplate = engine.fileInfoFor('app/templates/posts/index.hbs');
+      var component = engine.fileInfoFor('app/components/foo-bar.js');
+      var componentTemplate = engine.fileInfoFor('app/templates/components/foo-bar.hbs');
+
+      routeTemplate.registerRenderableUsage('foo-bar');
+
+      assert(component.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/component.js');
+      assert(componentTemplate.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/template.hbs');
+    });
   });
 });
