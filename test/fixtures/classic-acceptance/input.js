@@ -8,6 +8,10 @@ module.exports = {
       'baz-derp': {
         'component.js': 'baz-derp component',
         'template.hbs': 'baz-derp template'
+      },
+      'post-display': {
+        'component.js': 'post-display component',
+        'template.hbs': 'post-display component template'
       }
     },
     'helpers': {
@@ -63,7 +67,7 @@ module.exports = {
       'posts': {
         'index.hbs': 'posts/index route template',
         'post': {
-          'index.hbs': 'posts/post/index route template',
+          'index.hbs': 'posts/post/index route template\n{{post-display}}',
           'edit.hbs': 'posts/post/edit route template'
         },
         'new.hbs': 'posts/new route template',
