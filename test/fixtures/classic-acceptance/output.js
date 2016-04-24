@@ -29,9 +29,12 @@ module.exports = {
       },
       'routes': {
         'index': {
+          '-elements': {
+            'main-greeting-text.js': 'main-greeting-text helper'
+          },
           'controller.js': 'index controller',
           'route.js': 'index route',
-          'template.hbs': 'index route template'
+          'template.hbs': 'index route template {{main-greeting-text}}'
         },
         'posts': {
           'index': {
@@ -46,9 +49,21 @@ module.exports = {
           },
           'post': {
             'index': {
+              '-elements': {
+                'post-display': {
+                  'post-footer': {
+                    'component.js': 'post-footer component',
+                    'template.hbs': 'post-footer component template',
+                    'component-integration-test.js': 'post-footer integration test'
+                  },
+                  'component.js': 'post-display component',
+                  'template.hbs': 'post-display component template\n{{post-footer}}',
+                  'component-integration-test.js': 'post-display component integration test'
+                }
+              },
               'controller.js': 'posts/post/index controller',
               'route.js': 'posts/post/index route',
-              'template.hbs': 'posts/post/index route template'
+              'template.hbs': 'posts/post/index route template\n{{post-display}}'
             },
             'edit': {
               'controller.js': 'posts/post/edit controller',
@@ -57,9 +72,15 @@ module.exports = {
             }
           },
           'new': {
+            '-elements': {
+              'show-default-title': {
+                'helper.js': 'show-default-title helper',
+                'helper-integration-test.js': 'show-default-title helper integration test'
+              }
+            },
             'controller.js': 'posts/new controller',
             'route.js': 'posts/new route',
-            'template.hbs': 'posts/new route template'
+            'template.hbs': 'posts/new route template {{show-default-title}}'
           }
         }
       }

@@ -8,11 +8,21 @@ module.exports = {
       'baz-derp': {
         'component.js': 'baz-derp component',
         'template.hbs': 'baz-derp template'
+      },
+      'post-display': {
+        'component.js': 'post-display component',
+        'template.hbs': 'post-display component template\n{{post-footer}}'
+      },
+      'post-footer': {
+        'component.js': 'post-footer component',
+        'template.hbs': 'post-footer component template'
       }
     },
     'helpers': {
       'i18n.js': 'i18n helper',
-      'blerg.js': 'blerg helper'
+      'blerg.js': 'blerg helper',
+      'main-greeting-text.js': 'main-greeting-text helper',
+      'show-default-title.js': 'show-default-title helper'
     },
     'routes': {
       'index.js': 'index route',
@@ -59,14 +69,14 @@ module.exports = {
       }
     },
     'templates': {
-      'index.hbs': 'index route template',
+      'index.hbs': 'index route template {{main-greeting-text}}',
       'posts': {
         'index.hbs': 'posts/index route template',
         'post': {
-          'index.hbs': 'posts/post/index route template',
+          'index.hbs': 'posts/post/index route template\n{{post-display}}',
           'edit.hbs': 'posts/post/edit route template'
         },
-        'new.hbs': 'posts/new route template',
+        'new.hbs': 'posts/new route template {{show-default-title}}',
         'show.hbs': 'posts/post/show route template'
       },
       'components': {
@@ -109,6 +119,13 @@ module.exports = {
         'posts': {
           'index-test.js': 'posts/index integration test'
         }
+      },
+      'components': {
+        'post-display-test.js': 'post-display component integration test',
+        'post-footer-test.js': 'post-footer integration test'
+      },
+      'helpers': {
+        'show-default-title-test.js': 'show-default-title helper integration test'
       }
     }
   }
