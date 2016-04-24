@@ -70,33 +70,51 @@ describe('file-info model', function() {
       assert(test.destRelativePath === 'src/utils/foo/util-unit-test.js');
     });
 
-    it('detecting private / single use components (template only)', function() {
-      var routeTemplate = engine.fileInfoFor('app/templates/posts/index.hbs');
-      var componentTemplate = engine.fileInfoFor('app/templates/components/foo-bar.hbs');
+    describe('private components nesting', function() {
+      it('detecting private / single use components (template only)', function() {
+        var routeTemplate = engine.fileInfoFor('app/templates/posts/index.hbs');
+        var componentTemplate = engine.fileInfoFor('app/templates/components/foo-bar.hbs');
 
-      routeTemplate.registerRenderableUsage('foo-bar');
+        routeTemplate.registerRenderableUsage('foo-bar');
 
-      assert(componentTemplate.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/template.hbs');
-    });
+        assert(componentTemplate.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/template.hbs');
+      });
 
-    it('detecting private / single use components (component only)', function() {
-      var routeTemplate = engine.fileInfoFor('app/templates/posts/index.hbs');
-      var component = engine.fileInfoFor('app/components/foo-bar.js');
+      it('detecting private / single use components (component only)', function() {
+        var routeTemplate = engine.fileInfoFor('app/templates/posts/index.hbs');
+        var component = engine.fileInfoFor('app/components/foo-bar.js');
 
-      routeTemplate.registerRenderableUsage('foo-bar');
+        routeTemplate.registerRenderableUsage('foo-bar');
 
-      assert(component.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/component.js');
-    });
+        assert(component.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/component.js');
+      });
 
-    it('detecting private / single use components (component only)', function() {
-      var routeTemplate = engine.fileInfoFor('app/templates/posts/index.hbs');
-      var component = engine.fileInfoFor('app/components/foo-bar.js');
-      var componentTemplate = engine.fileInfoFor('app/templates/components/foo-bar.hbs');
+      it('detecting private / single use components (component only)', function() {
+        var routeTemplate = engine.fileInfoFor('app/templates/posts/index.hbs');
+        var component = engine.fileInfoFor('app/components/foo-bar.js');
+        var componentTemplate = engine.fileInfoFor('app/templates/components/foo-bar.hbs');
 
-      routeTemplate.registerRenderableUsage('foo-bar');
+        routeTemplate.registerRenderableUsage('foo-bar');
 
-      assert(component.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/component.js');
-      assert(componentTemplate.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/template.hbs');
+        assert(component.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/component.js');
+        assert(componentTemplate.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/template.hbs');
+      });
+
+      it('detecting private / single use components within other private/single use components', function() {
+        var routeTemplate = engine.fileInfoFor('app/templates/posts/index.hbs');
+        var fooBarComponent = engine.fileInfoFor('app/components/foo-bar.js');
+        var fooBarComponentTemplate = engine.fileInfoFor('app/templates/components/foo-bar.hbs');
+        var derpHerkComponent = engine.fileInfoFor('app/components/derp-herk.js');
+        var derpHerkComponentTemplate = engine.fileInfoFor('app/templates/components/derp-herk.hbs');
+
+        routeTemplate.registerRenderableUsage('foo-bar');
+        fooBarComponentTemplate.registerRenderableUsage('derp-herk');
+
+        assert(fooBarComponent.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/component.js');
+        assert(fooBarComponentTemplate.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/template.hbs');
+        assert(derpHerkComponent.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/derp-herk/component.js');
+        assert(derpHerkComponentTemplate.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/derp-herk/template.hbs');
+      });
     });
   });
 });

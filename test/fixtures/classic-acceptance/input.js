@@ -11,7 +11,11 @@ module.exports = {
       },
       'post-display': {
         'component.js': 'post-display component',
-        'template.hbs': 'post-display component template'
+        'template.hbs': 'post-display component template\n{{post-footer}}'
+      },
+      'post-footer': {
+        'component.js': 'post-footer component',
+        'template.hbs': 'post-footer component template'
       }
     },
     'helpers': {
