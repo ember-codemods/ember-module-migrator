@@ -50,6 +50,7 @@ describe('template-file-info', function() {
     confirmDetectsRenderables('{{t "some thing"}}{{t "whopdee doo"}}', ['t']);
     confirmDetectsRenderables('{{derp blah="haha"}}', ['derp']);
     confirmDetectsRenderables('<div data-foo={{derp blah="haha"}}></div>', ['derp']);
+    confirmDetectsRenderables('{{partial "foo"}}', ['partial', 'foo']);
 
     // error tolerance
     confirmDetectsRenderables('<div>', []);
