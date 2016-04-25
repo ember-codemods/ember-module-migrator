@@ -44,6 +44,7 @@ describe('template-file-info', function() {
     confirmDetectsRenderables('<div>{{#foo-bar}}{{huz-zah blah="lolol"}}{{/foo-bar}}</div>', ['foo-bar', 'huz-zah']);
     confirmDetectsRenderables('{{yield (hash foo=(build-thing) bar=(component "bar-baz"))}}', ['yield', 'hash', 'build-thing', 'component', 'bar-baz']);
     confirmDetectsRenderables('{{component "foo-bar"}}', ['component', 'foo-bar']);
+    confirmDetectsRenderables('{{foo/bar/baz/x-blah}}', ['foo/bar/baz/x-blah']);
 
     // helpers
     confirmDetectsRenderables('{{t "some thing"}}', ['t']);
