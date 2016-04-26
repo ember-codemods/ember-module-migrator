@@ -9,7 +9,7 @@ module.exports = {
         }
       },
       posts: {
-        'edit.hbs': '{{posts/edit/x-button}}'
+        'edit.hbs': '{{posts/edit/x-button}}\n{{#posts/edit/x-button}}\n  foo\n{{/posts/edit/x-button}}'
       }
     }
   },
