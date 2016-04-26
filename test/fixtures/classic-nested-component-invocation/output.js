@@ -9,7 +9,7 @@ module.exports = {
                 'template.hbs': 'x-button template'
               }
             },
-            'template.hbs': '{{posts/edit/x-button}}'
+            'template.hbs': '{{x-button}}'
           }
         }
       }
