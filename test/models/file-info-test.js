@@ -15,11 +15,15 @@ describe('file-info model', function() {
     it('can calculate a destRelativePath where type is the same as collection', function() {
       var file = engine.fileInfoFor('app/routes/foo-bar.js');
 
+      engine.finalizeFileDiscovery();
+
       assert(file.destRelativePath === 'src/ui/routes/foo-bar.js');
     });
 
     it('can calculate a destRelativePath where type is not the same as collection', function() {
       var file = engine.fileInfoFor('app/adapters/foo.js');
+
+      engine.finalizeFileDiscovery();
 
       assert(file.destRelativePath === 'src/data/models/foo/adapter.js');
     });
@@ -27,12 +31,16 @@ describe('file-info model', function() {
     it('uses <name>.<ext> instead of <name>/<type>.<ext> when only a single item that is the default type is present', function() {
       var file = engine.fileInfoFor('app/models/foo.js');
 
+      engine.finalizeFileDiscovery();
+
       assert(file.destRelativePath === 'src/data/models/foo.js');
     });
 
     it('uses <name>/<ext> instead of <name>.<type>.<ext> when multiple items exist for the bucket', function() {
       var model = engine.fileInfoFor('app/models/foo.js');
       var adapter = engine.fileInfoFor('app/adapters/foo.js');
+
+      engine.finalizeFileDiscovery();
 
       assert(model.destRelativePath === 'src/data/models/foo/model.js');
       assert(adapter.destRelativePath === 'src/data/models/foo/adapter.js');
@@ -42,6 +50,8 @@ describe('file-info model', function() {
       var model = engine.fileInfoFor('app/models/foo.js');
       var test = engine.fileInfoFor('tests/integration/models/foo-test.js');
 
+      engine.finalizeFileDiscovery();
+
       assert(model.destRelativePath === 'src/data/models/foo/model.js');
       assert(test.destRelativePath === 'src/data/models/foo/model-integration-test.js');
     });
@@ -49,6 +59,8 @@ describe('file-info model', function() {
     it('uses <name>/<ext> instead of <name>.<type>.<ext> when a mixin and a test exist', function() {
       var model = engine.fileInfoFor('app/mixins/foo.js');
       var test = engine.fileInfoFor('tests/unit/mixins/foo-test.js');
+
+      engine.finalizeFileDiscovery();
 
       assert(model.destRelativePath === 'src/utils/mixins/foo/mixin.js');
       assert(test.destRelativePath === 'src/utils/mixins/foo/mixin-unit-test.js');
@@ -58,6 +70,8 @@ describe('file-info model', function() {
       var model = engine.fileInfoFor('app/services/foo.js');
       var test = engine.fileInfoFor('tests/integration/services/foo-test.js');
 
+      engine.finalizeFileDiscovery();
+
       assert(model.destRelativePath === 'src/services/foo/service.js');
       assert(test.destRelativePath === 'src/services/foo/service-integration-test.js');
     });
@@ -65,6 +79,8 @@ describe('file-info model', function() {
     it('uses <name>/<ext> instead of <name>.<ext> when a util and a test exist', function() {
       var util = engine.fileInfoFor('app/utils/foo.js');
       var test = engine.fileInfoFor('tests/unit/utils/foo-test.js');
+
+      engine.finalizeFileDiscovery();
 
       assert(util.destRelativePath === 'src/utils/foo/util.js');
       assert(test.destRelativePath === 'src/utils/foo/util-unit-test.js');
@@ -77,6 +93,8 @@ describe('file-info model', function() {
 
         routeTemplate.registerRenderableUsage('foo-bar');
 
+        engine.finalizeFileDiscovery();
+
         assert(componentTemplate.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/template.hbs');
       });
 
@@ -85,6 +103,8 @@ describe('file-info model', function() {
         var component = engine.fileInfoFor('app/components/foo-bar.js');
 
         routeTemplate.registerRenderableUsage('foo-bar');
+
+        engine.finalizeFileDiscovery();
 
         assert(component.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/component.js');
       });
@@ -95,6 +115,8 @@ describe('file-info model', function() {
 
         routeTemplate.registerRenderableUsage('bar');
 
+        engine.finalizeFileDiscovery();
+
         assert(helper.destRelativePath === 'src/ui/routes/posts/index/-elements/bar.js');
       });
 
@@ -104,6 +126,8 @@ describe('file-info model', function() {
         var helperTest = engine.fileInfoFor('tests/integration/helpers/bar-test.js');
 
         routeTemplate.registerRenderableUsage('bar');
+
+        engine.finalizeFileDiscovery();
 
         assert(helper.destRelativePath === 'src/ui/routes/posts/index/-elements/bar/helper.js');
         assert(helperTest.destRelativePath === 'src/ui/routes/posts/index/-elements/bar/helper-integration-test.js');
@@ -116,8 +140,23 @@ describe('file-info model', function() {
 
         routeTemplate.registerRenderableUsage('foo-bar');
 
+        engine.finalizeFileDiscovery();
+
         assert(component.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/component.js');
         assert(componentTemplate.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/template.hbs');
+      });
+
+      it('detecting private / single use components with slashes in component invocation', function() {
+        var routeTemplate = engine.fileInfoFor('app/templates/posts/post.hbs');
+        var component = engine.fileInfoFor('app/components/posts/post/foo-bar.js');
+        var componentTemplate = engine.fileInfoFor('app/templates/components/posts/post/foo-bar.hbs');
+
+        routeTemplate.registerRenderableUsage('posts/post/foo-bar');
+
+        engine.finalizeFileDiscovery();
+
+        assert(component.destRelativePath === 'src/ui/routes/posts/post/-elements/foo-bar/component.js');
+        assert(componentTemplate.destRelativePath === 'src/ui/routes/posts/post/-elements/foo-bar/template.hbs');
       });
 
       it('detecting private / single use components within other private/single use components', function() {
@@ -129,6 +168,8 @@ describe('file-info model', function() {
 
         routeTemplate.registerRenderableUsage('foo-bar');
         fooBarComponentTemplate.registerRenderableUsage('derp-herk');
+
+        engine.finalizeFileDiscovery();
 
         assert(fooBarComponent.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/component.js');
         assert(fooBarComponentTemplate.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/template.hbs');
