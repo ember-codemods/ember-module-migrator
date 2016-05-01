@@ -47,7 +47,7 @@ describe('classic engine', function() {
       confirm('app/templates/foo-bar/baz/index.hbs', {type: 'template', name: 'index', namespace: 'foo-bar/baz', collection: 'routes', collectionGroup: 'ui'});
       confirm('app/adapters/application.js', {type: 'adapter', name: 'application', namespace: '', collection: 'models', collectionGroup: 'data' });
       confirm('app/app.js', {type: 'main', name: 'main', namespace: '', collection: '', collectionGroup: ''});
-      confirm('app/router.js', {type: 'main', name: 'router', namespace: '', collection: 'main', collectionGroup: ''});
+      confirm('app/router.js', {type: 'main', name: 'router', namespace: '', collection: '', collectionGroup: ''});
       confirm('app/index.md', { name: 'index', namespace: '', collection: '', collectionGroup: '' });
       confirm('app/styles/app.css', { type: 'style', name: 'app', namespace: '', collection: 'styles', collectionGroup: 'ui' });
       confirm('app/styles/components/badges.css', { type: 'style', name: 'badges', namespace: 'components', collection: 'styles', collectionGroup: 'ui' });
@@ -77,7 +77,8 @@ describe('classic engine', function() {
         'app/controllers/foo/bar/baz.js': 'src/ui/routes/foo/bar/baz/controller.js',
         'app/templates/posts/post/index.hbs': 'src/ui/routes/posts/post/index/template.hbs',
         'app/app.js': 'src/main.js',
-        'app/router.js': 'src/main/router.js',
+        'app/routes.js': 'src/routes.js',
+        'app/router.js': 'src/router.js',
         'app/README.md': 'src/README.md',
         'app/_config.yml': 'src/_config.yml',
         'app/index.html': 'src/main/index.html',

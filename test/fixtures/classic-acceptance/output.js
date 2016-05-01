@@ -1,6 +1,7 @@
 module.exports = {
   'src': {
     'main.js': 'app.js',
+    'router.js': 'router.js',
     'init': {
       'initializers': {
         'blah.js': 'blah initializer',
@@ -11,7 +12,6 @@ module.exports = {
       }
     },
     'main': {
-      'router.js': 'router.js',
       'index.html': 'index.html contents'
     },
     'ui': {
