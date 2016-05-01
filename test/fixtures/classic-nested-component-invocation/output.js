@@ -4,7 +4,7 @@ module.exports = {
       routes: {
         posts: {
           edit: {
-            '-elements': {
+            '-components': {
               'x-button': {
                 'template.hbs': 'x-button template'
               }

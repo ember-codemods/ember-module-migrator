@@ -37,10 +37,10 @@ describe('classic engine', function() {
         });
       }
 
-      confirm('app/components/foo-bar.js', {type: 'component', name: 'foo-bar', namespace: '', collection: 'elements', collectionGroup: 'ui'});
-      confirm('app/components/foo-bar/component.js', {type: 'component', name: 'foo-bar', namespace: '', collection: 'elements', collectionGroup: 'ui' });
-      confirm('app/templates/components/foo-bar.hbs', {type: 'template', name: 'foo-bar', namespace: '', collection: 'elements', collectionGroup: 'ui'});
-      confirm('app/components/foo-bar/template.hbs', {type: 'template', name: 'foo-bar', namespace: '', collection: 'elements', collectionGroup: 'ui'});
+      confirm('app/components/foo-bar.js', {type: 'component', name: 'foo-bar', namespace: '', collection: 'components', collectionGroup: 'ui'});
+      confirm('app/components/foo-bar/component.js', {type: 'component', name: 'foo-bar', namespace: '', collection: 'components', collectionGroup: 'ui' });
+      confirm('app/templates/components/foo-bar.hbs', {type: 'template', name: 'foo-bar', namespace: '', collection: 'components', collectionGroup: 'ui'});
+      confirm('app/components/foo-bar/template.hbs', {type: 'template', name: 'foo-bar', namespace: '', collection: 'components', collectionGroup: 'ui'});
       confirm('app/routes/foo-bar.js', {type: 'route', name: 'foo-bar', namespace: '', collection: 'routes', collectionGroup: 'ui'});
       confirm('app/routes/foo-bar/baz/index.js', {type: 'route', name: 'index', namespace: 'foo-bar/baz', collection: 'routes', collectionGroup: 'ui'});
       confirm('app/templates/foo-bar.hbs', {type: 'template', name: 'foo-bar', collection: 'routes', collectionGroup: 'ui'});
@@ -64,10 +64,10 @@ describe('classic engine', function() {
 
     describe('file info destinations', function() {
       var mappings = {
-        'app/components/foo-bar.js': 'src/ui/elements/foo-bar/component.js',
-        'app/components/qux-derp/component.js': 'src/ui/elements/qux-derp/component.js',
-        'app/templates/components/foo-bar.hbs': 'src/ui/elements/foo-bar/template.hbs',
-        'app/components/qux-derp/template.hbs': 'src/ui/elements/qux-derp/template.hbs',
+        'app/components/foo-bar.js': 'src/ui/components/foo-bar/component.js',
+        'app/components/qux-derp/component.js': 'src/ui/components/qux-derp/component.js',
+        'app/templates/components/foo-bar.hbs': 'src/ui/components/foo-bar/template.hbs',
+        'app/components/qux-derp/template.hbs': 'src/ui/components/qux-derp/template.hbs',
         'app/routes/post/index.js': 'src/ui/routes/post/index/route.js',
         'app/templates/post/index.hbs': 'src/ui/routes/post/index/template.hbs',
         'app/routes/foo/bar/baz.js': 'src/ui/routes/foo/bar/baz/route.js',

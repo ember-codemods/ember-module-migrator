@@ -15,7 +15,7 @@ module.exports = {
       'index.html': 'index.html contents'
     },
     'ui': {
-      'elements': {
+      'components': {
         'foo-bar': {
           'component.js': 'foo-bar component',
           'template.hbs': 'foo-bar component template'
@@ -29,7 +29,7 @@ module.exports = {
       },
       'routes': {
         'index': {
-          '-elements': {
+          '-components': {
             'main-greeting-text.js': 'main-greeting-text helper'
           },
           'controller.js': 'index controller',
@@ -49,7 +49,7 @@ module.exports = {
           },
           'post': {
             'index': {
-              '-elements': {
+              '-components': {
                 'post-display': {
                   'post-footer': {
                     'component.js': 'post-footer component',
@@ -72,7 +72,7 @@ module.exports = {
             }
           },
           'new': {
-            '-elements': {
+            '-components': {
               'show-default-title': {
                 'helper.js': 'show-default-title helper',
                 'helper-integration-test.js': 'show-default-title helper integration test'

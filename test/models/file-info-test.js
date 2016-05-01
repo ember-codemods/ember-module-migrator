@@ -95,7 +95,7 @@ describe('file-info model', function() {
 
         engine.finalizeFileDiscovery();
 
-        assert(componentTemplate.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/template.hbs');
+        assert(componentTemplate.destRelativePath === 'src/ui/routes/posts/index/-components/foo-bar/template.hbs');
       });
 
       it('detecting private / single use components (component only)', function() {
@@ -106,7 +106,7 @@ describe('file-info model', function() {
 
         engine.finalizeFileDiscovery();
 
-        assert(component.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/component.js');
+        assert(component.destRelativePath === 'src/ui/routes/posts/index/-components/foo-bar/component.js');
       });
 
       it('detecting private / single use helper', function() {
@@ -117,7 +117,7 @@ describe('file-info model', function() {
 
         engine.finalizeFileDiscovery();
 
-        assert(helper.destRelativePath === 'src/ui/routes/posts/index/-elements/bar.js');
+        assert(helper.destRelativePath === 'src/ui/routes/posts/index/-components/bar.js');
       });
 
       it('detecting private / single use helper with a test', function() {
@@ -129,8 +129,8 @@ describe('file-info model', function() {
 
         engine.finalizeFileDiscovery();
 
-        assert(helper.destRelativePath === 'src/ui/routes/posts/index/-elements/bar/helper.js');
-        assert(helperTest.destRelativePath === 'src/ui/routes/posts/index/-elements/bar/helper-integration-test.js');
+        assert(helper.destRelativePath === 'src/ui/routes/posts/index/-components/bar/helper.js');
+        assert(helperTest.destRelativePath === 'src/ui/routes/posts/index/-components/bar/helper-integration-test.js');
       });
 
       it('detecting private / single use components (component only)', function() {
@@ -142,8 +142,8 @@ describe('file-info model', function() {
 
         engine.finalizeFileDiscovery();
 
-        assert(component.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/component.js');
-        assert(componentTemplate.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/template.hbs');
+        assert(component.destRelativePath === 'src/ui/routes/posts/index/-components/foo-bar/component.js');
+        assert(componentTemplate.destRelativePath === 'src/ui/routes/posts/index/-components/foo-bar/template.hbs');
       });
 
       it('detecting private / single use components with slashes in component invocation', function() {
@@ -155,8 +155,8 @@ describe('file-info model', function() {
 
         engine.finalizeFileDiscovery();
 
-        assert(component.destRelativePath === 'src/ui/routes/posts/post/-elements/foo-bar/component.js');
-        assert(componentTemplate.destRelativePath === 'src/ui/routes/posts/post/-elements/foo-bar/template.hbs');
+        assert(component.destRelativePath === 'src/ui/routes/posts/post/-components/foo-bar/component.js');
+        assert(componentTemplate.destRelativePath === 'src/ui/routes/posts/post/-components/foo-bar/template.hbs');
       });
 
       it('detecting private / single use components within other private/single use components', function() {
@@ -171,10 +171,10 @@ describe('file-info model', function() {
 
         engine.finalizeFileDiscovery();
 
-        assert(fooBarComponent.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/component.js');
-        assert(fooBarComponentTemplate.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/template.hbs');
-        assert(derpHerkComponent.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/derp-herk/component.js');
-        assert(derpHerkComponentTemplate.destRelativePath === 'src/ui/routes/posts/index/-elements/foo-bar/derp-herk/template.hbs');
+        assert(fooBarComponent.destRelativePath === 'src/ui/routes/posts/index/-components/foo-bar/component.js');
+        assert(fooBarComponentTemplate.destRelativePath === 'src/ui/routes/posts/index/-components/foo-bar/template.hbs');
+        assert(derpHerkComponent.destRelativePath === 'src/ui/routes/posts/index/-components/foo-bar/derp-herk/component.js');
+        assert(derpHerkComponentTemplate.destRelativePath === 'src/ui/routes/posts/index/-components/foo-bar/derp-herk/template.hbs');
       });
     });
   });
