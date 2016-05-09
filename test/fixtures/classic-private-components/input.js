@@ -13,6 +13,10 @@ module.exports = {
   },
 
   tests: {
-
+    integration: {
+      components: {
+        'x-bar-test.js': 'x-bar component test'
+      }
+    }
   }
 };

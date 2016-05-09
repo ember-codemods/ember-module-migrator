@@ -5,7 +5,8 @@ module.exports = {
         'x-foo': {
           'template.hbs': 'x-foo template: {{x-bar}}',
           'x-bar': {
-            'template.hbs': 'x-bar template'
+            'template.hbs': 'x-bar template',
+            'component-integration-test.js': 'x-bar component test'
           }
         }
       },
