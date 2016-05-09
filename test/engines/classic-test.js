@@ -38,6 +38,8 @@ describe('classic engine', function() {
       }
 
       confirm('app/components/foo-bar.js', {type: 'component', name: 'foo-bar', namespace: '', collection: 'components', collectionGroup: 'ui'});
+      confirm('app/helpers/foo.js', {type: 'helper', name: 'foo', namespace: '', collection: 'components', collectionGroup: 'ui'});
+      confirm('app/helpers/foo/bar.js', {type: 'helper', name: 'bar', namespace: 'foo', collection: 'components', collectionGroup: 'ui'});
       confirm('app/components/foo-bar/component.js', {type: 'component', name: 'foo-bar', namespace: '', collection: 'components', collectionGroup: 'ui' });
       confirm('app/templates/components/foo-bar.hbs', {type: 'template', name: 'foo-bar', namespace: '', collection: 'components', collectionGroup: 'ui'});
       confirm('app/components/foo-bar/template.hbs', {type: 'template', name: 'foo-bar', namespace: '', collection: 'components', collectionGroup: 'ui'});
