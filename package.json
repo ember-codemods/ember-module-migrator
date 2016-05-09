@@ -7,7 +7,7 @@
     "ember-module-migrator": "./bin/ember-module-migrator"
   },
   "scripts": {
-    "test": "mocha test/**-test.js"
+    "test": "mocha test/**/*-test.js"
   },
   "author": "Robert Jackson <me@rwjblue.com>",
   "license": "MIT",
