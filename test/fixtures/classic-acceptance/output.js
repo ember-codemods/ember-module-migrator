@@ -100,6 +100,9 @@ module.exports = {
           'model.js': 'comment model'
         },
         'tag.js': 'tag model'
+      },
+      transforms: {
+        'date.js': 'custom date transform'
       }
     },
     'services': {

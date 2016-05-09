@@ -83,6 +83,9 @@ module.exports = {
         'foo-bar.hbs': 'foo-bar component template'
       }
     },
+    'transforms': {
+      'date.js': 'custom date transform'
+    },
     'mixins': {
       'foo.js': 'foo mixin'
     },
