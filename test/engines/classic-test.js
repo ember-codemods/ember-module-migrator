@@ -49,7 +49,7 @@ describe('classic engine', function() {
       confirm('app/app.js', {type: 'main', name: 'main', namespace: '', collection: '', collectionGroup: ''});
       confirm('app/router.js', {type: 'main', name: 'router', namespace: '', collection: '', collectionGroup: ''});
       confirm('app/index.md', { name: 'index', namespace: '', collection: '', collectionGroup: '' });
-      confirm('app/index.html', { name: 'index', namespace: '', collection: '', collectionGroup: 'init' });
+      confirm('app/index.html', { name: 'index', namespace: '', collection: '', collectionGroup: 'ui' });
       confirm('app/styles/app.css', { type: 'style', name: 'app', namespace: '', collection: 'styles', collectionGroup: 'ui' });
       confirm('app/styles/components/badges.css', { type: 'style', name: 'badges', namespace: 'components', collection: 'styles', collectionGroup: 'ui' });
       confirm('app/mixins/foo/bar.js', { type: 'util', name: 'bar', namespace: 'mixins/foo', collection: 'utils' });
@@ -82,7 +82,7 @@ describe('classic engine', function() {
         'app/router.js': 'src/router.js',
         'app/README.md': 'src/README.md',
         'app/_config.yml': 'src/_config.yml',
-        'app/index.html': 'src/init/index.html',
+        'app/index.html': 'src/ui/index.html',
         'app/styles/app.css': 'src/ui/styles/app.css',
         'app/styles/components/badges.css': 'src/ui/styles/components/badges.css',
         'app/mirage/config.js': 'src/mirage/config.js',

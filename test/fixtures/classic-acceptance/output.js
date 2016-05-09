@@ -9,10 +9,10 @@ module.exports = {
       },
       'instance-initializers': {
         'blammo.js': 'blammo instance initializer'
-      },
-      'index.html': 'index.html contents'
+      }
     },
     'ui': {
+      'index.html': 'index.html contents',
       'components': {
         'foo-bar': {
           'component.js': 'foo-bar component',
