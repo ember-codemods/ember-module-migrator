@@ -2,7 +2,13 @@
 
 Migrates ember-cli projects to the newly proposed module format.
 
-See RFC for details.
+See [emberjs/rfcs#143](https://github.com/emberjs/rfcs/pull/143) for details.
+
+## Examples
+
+* [Ghost admin client](https://github.com/rwjblue/--ghost-modules-sample/tree/grouped-collections/src)
+* [Travis client](https://github.com/rwjblue/--travis-modules-sample/tree/modules/src)
+* [`ember new my-app`](https://github.com/rwjblue/--new-app-blueprint/tree/modules/src)
 
 ### Usage
 
