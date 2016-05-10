@@ -2,7 +2,7 @@
 'use strict';
 
 // Local Variables:
-// mode: javascript
+// mode: js2
 // End:
 
 // Provide a title to the process in `ps`
@@ -14,16 +14,19 @@ var nopt = require("nopt");
 var options = {
   'project-root': [String],
   'engine': [String, 'classic']
-}
+};
 var parsed = nopt(options);
 
 var migrator = new Migrator({
   projectRoot: parsed['project-root'] || process.cwd(),
-  engine: parsed['engine']
+  engine: parsed['engine'],
+  verbose: true
 });
 
 migrator.processFiles()
   .then(function() {
+    /* eslint no-console: 0 */
+
     console.log('Finished successfully!');
   })
   .catch(function(error) {
