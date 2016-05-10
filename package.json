@@ -23,6 +23,8 @@
     "rimraf": "^2.5.2"
   },
   "dependencies": {
+    "chalk": "^1.1.3",
+    "cli-table2": "^0.2.0",
     "core-object": "^2.0.0",
     "exists-sync": "0.0.3",
     "fs-extra": "^0.28.0",
