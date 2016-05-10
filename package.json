@@ -7,7 +7,7 @@
     "ember-module-migrator": "./bin/ember-module-migrator"
   },
   "scripts": {
-    "test": "mocha test/**/*-test.js",
+    "test": "mocha test/*-test.js test/**/*-test.js",
     "preversion": "npm test",
     "postversion": "git push && git push --tags && npm publish"
   },
