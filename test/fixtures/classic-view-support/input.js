@@ -1,8 +1,8 @@
 module.exports = {
   'app': {
     'views': {
-      'foo.js': 'foo view no template invocation',
-      'bar.js': 'bar view with template invocation'
+      'foo.js': '"foo view no template invocation"',
+      'bar.js': '"bar view with template invocation"'
     },
     'templates': {
       'index.hbs': '{{view "bar"}}',
