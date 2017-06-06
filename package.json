@@ -17,6 +17,7 @@
     "assert-diff": "^1.0.1",
     "espower-loader": "^1.0.0",
     "fixturify": "^0.2.0",
+    "jscodeshift": "^0.3.30",
     "mocha": "^2.4.5",
     "mocha-eslint": "^2.0.2",
     "power-assert": "^1.3.1",
