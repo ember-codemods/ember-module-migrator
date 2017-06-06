@@ -3,7 +3,7 @@ module.exports = {
     'ui': {
       'routes': {
         'post': {
-          'route.js': 'post route',
+          'route.js': '"post route"',
           'template.hbs': 'post route template'
         }
       }

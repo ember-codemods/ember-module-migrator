@@ -7,7 +7,7 @@ module.exports = {
         'titleize.js': 'export const helper = helper(function() { });',
         'capitalize': {
           'helper.js': 'export default helper(function() { });',
-          'helper-integration-test.js': 'capitalize helper test'
+          'helper-integration-test.js': '"capitalize helper test"'
         }
       }
     }
