@@ -13,7 +13,8 @@ describe('classic engine', function() {
 
     beforeEach(function() {
       engine = new Migrator({
-        projectRoot: '.'
+        projectRoot: '.',
+        projectName: 'my-app'
       });
     });
 
@@ -148,7 +149,8 @@ describe('classic engine', function() {
         fixturify.writeSync(tmpPath, input);
 
         var engine = new Migrator({
-          projectRoot: tmpPath
+          projectRoot: tmpPath,
+          projectName: 'my-app'
         });
 
         return engine.processFiles()
