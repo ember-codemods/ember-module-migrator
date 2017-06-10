@@ -12,7 +12,7 @@ module.exports = {
   tests: {
     integration: {
       helpers: {
-        'capitalize-test.js': 'capitalize helper test'
+        'capitalize-test.js': '"capitalize helper test"'
       }
     }
   }

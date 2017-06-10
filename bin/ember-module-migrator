@@ -13,12 +13,24 @@ var Migrator = require('../lib');
 var nopt = require("nopt");
 var options = {
   'project-root': [String],
+  'project-name': [String],
   'engine': [String, 'classic']
 };
 var parsed = nopt(options);
 
+var projectRoot = parsed['project-root'] || process.cwd();
+var projectName = parsed['project-name'];
+if (!projectName) {
+  // determine name from package.json in projectRoot
+  try {
+    var fs = require('fs');
+    projectName = JSON.parse(fs.readFileSync(projectRoot + '/package.json', 'utf8')).name;
+  } catch (e) {}
+}
+
 var migrator = new Migrator({
-  projectRoot: parsed['project-root'] || process.cwd(),
+  projectRoot: projectRoot,
+  projectName: projectName,
   engine: parsed['engine'],
   verbose: true
 });

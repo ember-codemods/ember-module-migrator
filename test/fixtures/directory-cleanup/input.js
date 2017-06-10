@@ -2,7 +2,7 @@ module.exports = {
   'app': {
     'routes': {
       '.gitkeep': '',
-      'post.js': 'post route'
+      'post.js': '"post route"'
     },
     'templates': {
       '.gitkeep': '',
