@@ -1,5 +1,13 @@
 module.exports = {
   app: {
+    models: {
+      'application.js': '//app model',
+      'post.js': '// post'
+    },
+    adapters: {
+      'application.js': '// application adapter',
+      'post.js': 'import ApplicationAdapter from "my-app/adapters/application";'
+    },
     utils: {
       'nested.js': '"nested util"',
       'single.js': '"single util"'

@@ -1,5 +1,17 @@
 module.exports = {
   src: {
+    data: {
+      models: {
+        application: {
+          'model.js': '//app model',
+          'adapter.js': '// application adapter'
+        },
+        post: {
+          'model.js': '// post',
+          'adapter.js': 'import ApplicationAdapter from "my-app/src/data/models/application/adapter";'
+        }
+      }
+    },
     ui: {
       routes: {
         application: {

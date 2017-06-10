@@ -1,5 +1,13 @@
 module.exports = {
   app: {
+    models: {
+      'application.js': '//app model',
+      'post.js': 'import ApplicationModel from "./application";'
+    },
+    adapters: {
+      'application.js': '//app serializer',
+      'post.js': 'import ApplicationSerializer from "./application";'
+    },
     utils: {
       'nested.js': '"nested util"',
       'single.js': '"single util"',
@@ -20,7 +28,7 @@ module.exports = {
         'nested-test.js': '"nested util test"'
       },
       routes: {
-        'application-test.js': 'import ApplicationRoute from "../../../app/routes/application";'
+        'application-test.js': 'import ApplicationRoute from "../../../routes/application"; import NestedTest from "../utils/nested-test";'
       }
     }
   }
