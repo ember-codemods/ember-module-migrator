@@ -35,6 +35,9 @@
     "rsvp": "^3.2.1",
     "walk-sync": "^0.3.2"
   },
+  "engines": {
+    "node": ">= 4"
+  },
   "directories": {
     "test": "test"
   },
