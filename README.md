@@ -33,13 +33,16 @@ to boot an application. The best path forward is to run the
 on the converted app:
 
 ```sh
-# This command will run the blueprint. Important things to note in the
-# package.json and bower.json are these package changes:
+# This command will run the blueprint, but it requires Ember-CLI 2.14.
 #
-# npm i ember-resolver@^4.2.3 ember-cli@github:ember-cli/ember-cli --save-dev
-# npm uninstall ember-source --save
-# bower install --save components/ember#canary
+# You may want to manually update the following packages before running the
+# `ember init` command:
 #
+#   npm i ember-resolver@^4.2.3 ember-cli@github:ember-cli/ember-cli --save-dev
+#   npm uninstall ember-source --save
+#   bower install --save components/ember#canary
+#
+# If you are already running 2.14, you can jump right to the command:
 ember init -b ember-module-unification-blueprint
 ```
 
@@ -58,8 +61,14 @@ import Resolver from 'ember-resolver/resolvers/glimmer-wrapper';
 import buildResolverConfig from 'ember-resolver/ember-config';
 import config from '../config/environment';
 
+let moduleConfig = buildResolverConfig(config.modulePrefix);
+/*
+ * If your application has custom types and collections, modify moduleConfig here
+ * to add support for them.
+ */
+
 export default Resolver.extend({
-  config: buildResolverConfig(config.modulePrefix),
+  config: moduleConfig,
   init(options) {
     this._super(options);
     this._fallback = ClassicResolver.create(Object.assign({
