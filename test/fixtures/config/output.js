@@ -20,5 +20,11 @@ module.exports = {
   },
   config: {
     'environment.js': '"ENV"'
+  },
+  tests: {
+    'helpers': {
+      'resolver.js': 'import config from "../../config/environment";',
+      'start-app.js': 'import config from "my-app/config/environment";'
+    }
   }
 };
