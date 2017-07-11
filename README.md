@@ -56,8 +56,7 @@ directory for some files like initializers.
 To do this use a fallback resolver in `src/resolver.js`:
 
 ```js
-import ClassicResolver from 'ember-resolver';
-import Resolver from 'ember-resolver/resolvers/glimmer-wrapper';
+import Resolver from 'ember-resolver/resolvers/fallback';
 import buildResolverConfig from 'ember-resolver/ember-config';
 import config from '../config/environment';
 
@@ -68,20 +67,7 @@ let moduleConfig = buildResolverConfig(config.modulePrefix);
  */
 
 export default Resolver.extend({
-  config: moduleConfig,
-  init(options) {
-    this._super(options);
-    this._fallback = ClassicResolver.create(Object.assign({
-      namespace: { modulePrefix: config.modulePrefix }
-    }, options));
-  },
-  resolve(name, referrer) {
-    let result = this._super(name, referrer);
-    if (!result) {
-      result = this._fallback.resolve(name);
-    }
-    return result;
-  }
+  config: moduleConfig
 });
 ```
 
