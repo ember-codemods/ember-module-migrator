@@ -38,7 +38,7 @@ on the converted app:
 # You may want to manually update the following packages before running the
 # `ember init` command:
 #
-#   npm i ember-resolver@^4.2.4 ember-cli@github:ember-cli/ember-cli --save-dev
+#   npm i ember-resolver@^4.3.0 ember-cli@github:ember-cli/ember-cli --save-dev
 #   npm uninstall ember-source --save
 #   bower install --save components/ember#canary
 #
