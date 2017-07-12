@@ -28,7 +28,11 @@ ember-module-migrator
 ```
 
 After running the migrator itself, you will need to update several files
-to boot an application. The best path forward is to run the
+to boot an application in order to boot it.
+
+### Booting a migrated app
+
+The best path forward is to run the
 [ember-module-unification-blueprint](https://github.com/emberjs/ember-module-unification-blueprint)
 on the converted app:
 
@@ -45,6 +49,11 @@ on the converted app:
 # If you are already running 2.14, you can jump right to the command:
 ember init -b ember-module-unification-blueprint
 ```
+Additionally any component names not in a template are not recognized by the
+migrator. For example if you have a computed property that returns the
+string `"widget/some-thing"` using that string with the `{{component` helper
+will now cause an error. You must convert these component named to not have `/`
+characters in their strings.
 
 ### Running module unification with fallback to classic app layout
 
