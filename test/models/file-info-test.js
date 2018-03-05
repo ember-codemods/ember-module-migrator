@@ -20,6 +20,14 @@ describe('file-info model', function() {
       assert(file.destRelativePath === 'src/ui/routes/foo-bar.js');
     });
 
+    it('can calculate a destRelativePath where the base path is in the pods form', function() {
+      var file = engine.fileInfoFor('app/pods/foo-bar/route.js');
+
+      engine.finalizeFileDiscovery();
+
+      assert(file.destRelativePath === 'src/ui/routes/foo-bar.js');
+    });
+
     it('can calculate a destRelativePath where type is not the same as collection', function() {
       var file = engine.fileInfoFor('app/adapters/foo.js');
 
@@ -101,6 +109,17 @@ describe('file-info model', function() {
       it('detecting private / single use components (component only)', function() {
         var routeTemplate = engine.fileInfoFor('app/templates/posts/index.hbs');
         var component = engine.fileInfoFor('app/components/foo-bar.js');
+
+        routeTemplate.registerRenderableUsage('foo-bar');
+
+        engine.finalizeFileDiscovery();
+
+        assert(component.destRelativePath === 'src/ui/routes/posts/index/-components/foo-bar/component.js');
+      });
+
+      it('pods | detecting private / single use components (component only)', function() {
+        var routeTemplate = engine.fileInfoFor('app/pods/posts/index/template.hbs');
+        var component = engine.fileInfoFor('app/pods/foo-bar/component.js');
 
         routeTemplate.registerRenderableUsage('foo-bar');
 
