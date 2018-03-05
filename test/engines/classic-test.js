@@ -145,13 +145,20 @@ describe('classic engine', function() {
         var fixturePath = path.join(fixturesPath, entry);
         var input = require(fixturePath + '/input');
         var expected = require(fixturePath + '/output');
+        var migratorConfig = {};
+        try {
+          migratorConfig = require(fixturePath + '/config');
+        } catch (e) {
+          // fixture uses default config...
+        }
 
         fixturify.writeSync(tmpPath, input);
-
-        var engine = new Migrator({
+        var migratorOptions = Object.assign({}, {
           projectRoot: tmpPath,
           projectName: 'my-app'
-        });
+        }, migratorConfig);
+
+        var engine = new Migrator(migratorOptions);
 
         return engine.processFiles()
           .then(function() {

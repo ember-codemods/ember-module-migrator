@@ -8,6 +8,8 @@
 // Provide a title to the process in `ps`
 process.title = 'ember-module-migrator';
 
+var fs = require('fs');
+
 var Migrator = require('../lib');
 
 var nopt = require("nopt");
@@ -20,10 +22,15 @@ var parsed = nopt(options);
 
 var projectRoot = parsed['project-root'] || process.cwd();
 var projectName = parsed['project-name'];
+
+var environment = require(projectRoot + '/config/environment.js');
+
+var modulePrefix = environment.modulePrefix;
+var podModulePrefix = (environment.podModulePrefix || '').replace(modulePrefix + '\/', '');
+
 if (!projectName) {
   // determine name from package.json in projectRoot
   try {
-    var fs = require('fs');
     projectName = JSON.parse(fs.readFileSync(projectRoot + '/package.json', 'utf8')).name;
   } catch (e) {}
 }
@@ -32,6 +39,7 @@ var migrator = new Migrator({
   projectRoot: projectRoot,
   projectName: projectName,
   engine: parsed['engine'],
+  podModulePrefix: podModulePrefix || undefined,
   verbose: true
 });
 

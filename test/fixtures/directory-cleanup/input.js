@@ -7,6 +7,11 @@ module.exports = {
     'templates': {
       '.gitkeep': '',
       'post.hbs': 'post route template'
+    },
+    'pods': {
+      'posts': {
+        '.gitkeep': ''
+      }
     }
   },
   'tests': {
