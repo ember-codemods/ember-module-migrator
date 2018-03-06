@@ -21,6 +21,7 @@ describe('file-info model', function() {
     });
 
     it('can calculate a destRelativePath where the base path is in the pods form', function() {
+      engine.podModulePrefix = 'pods';
       var file = engine.fileInfoFor('app/pods/foo-bar/route.js');
 
       engine.finalizeFileDiscovery();
@@ -118,6 +119,7 @@ describe('file-info model', function() {
       });
 
       it('pods | detecting private / single use components (component only)', function() {
+        engine.podModulePrefix = 'pods';
         var routeTemplate = engine.fileInfoFor('app/pods/posts/index/template.hbs');
         var component = engine.fileInfoFor('app/pods/foo-bar/component.js');
 
