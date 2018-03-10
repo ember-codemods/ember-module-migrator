@@ -80,7 +80,7 @@ export default Resolver.extend({
 });
 ```
 
-And in `src/main.js` be sure to load initializers in the `app/` directory
+In `src/main.js` be sure to load initializers in the `app/` directory
 (possibly added by an addon) via:
 
 ```js
@@ -93,6 +93,12 @@ loadInitializers(App, config.modulePrefix+'/src/init');
  * This line should be added to support `app/` directories
  */
 loadInitializers(App, config.modulePrefix);
+```
+
+Finally, in `tests/test-helper.js`, load the app from `../src/main`
+
+```js
+import Application from '../src/main';
 ```
 
 ### Important Notes
