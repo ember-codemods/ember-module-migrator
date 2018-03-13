@@ -4,9 +4,9 @@ module.exports = {
     'router.js': 'export default Router',
     ui: {
       components: {
-        'titleize.js': 'export const helper = helper(function() { });',
+        'titleize.js': 'import { helper as buildHelper } from \'@ember/component/helper\';\nexport const helper = buildHelper(function() { });',
         'capitalize': {
-          'helper.js': 'export default helper(function() { });',
+          'helper.js': 'import { helper as buildHelper } from \'@ember/component/helper\';\nexport default buildHelper(function() { });',
           'helper-integration-test.js': '"capitalize helper test"'
         }
       }

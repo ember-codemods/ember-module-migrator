@@ -4,8 +4,8 @@ module.exports = {
     'app.js': 'export default App',
     'router.js': 'export default Router',
     helpers: {
-      'titleize.js': 'export default helper(function() { });',
-      'capitalize.js': 'export default helper(function() { });'
+      'titleize.js': 'import { helper } from \'@ember/component/helper\';\nexport default helper(function() { });',
+      'capitalize.js': 'import { helper } from \'@ember/component/helper\';\nexport default helper(function() { });'
     }
   },
 
