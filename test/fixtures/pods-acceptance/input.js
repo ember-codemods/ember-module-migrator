@@ -1,3 +1,5 @@
+var stripIndents = require('common-tags').stripIndents;
+
 module.exports = {
   'app': {
     'app.js': '"app.js"',
@@ -56,10 +58,22 @@ module.exports = {
       },
     },
     'helpers': {
-      'i18n.js': '"i18n helper"',
-      'blerg.js': '"blerg helper"',
-      'main-greeting-text.js': '"main-greeting-text helper"',
-      'show-default-title.js': '"show-default-title helper"'
+      'i18n.js': stripIndents`
+        import { helper } from '@ember/component/helper';
+        export default helper(i18n);
+      `,
+      'blerg.js': stripIndents`
+        import { helper } from '@ember/component/helper';
+        export default helper(blerg);
+      `,
+      'main-greeting-text.js': stripIndents`
+        import { helper } from '@ember/component/helper';
+        export default helper(mainGreetingText);
+      `,
+      'show-default-title.js': stripIndents`
+        import { helper } from '@ember/component/helper';
+        export default helper(showDefaultTitle);
+      `,
     },
     'adapters': {
       'application.js': '"application adapter"',
