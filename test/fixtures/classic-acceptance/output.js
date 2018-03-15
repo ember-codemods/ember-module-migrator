@@ -1,3 +1,5 @@
+var stripIndents = require('common-tags').stripIndents;
+
 module.exports = {
   'src': {
     'main.js': '"app.js"',
@@ -22,13 +24,22 @@ module.exports = {
           'component.js': '"baz-derp component"',
           'template.hbs': 'baz-derp template'
         },
-        'i18n.js': '"i18n helper"',
-        'blerg.js': '"blerg helper"'
+        'i18n.js': stripIndents`
+          import { helper as buildHelper } from '@ember/component/helper';
+          export const helper = buildHelper(i18n);
+        `,
+        'blerg.js': stripIndents`
+          import { helper as buildHelper } from '@ember/component/helper';
+          export const helper = buildHelper(blerg);
+        `,
       },
       'routes': {
         'index': {
           '-components': {
-            'main-greeting-text.js': '"main-greeting-text helper"'
+            'main-greeting-text.js': stripIndents`
+              import { helper as buildHelper } from '@ember/component/helper';
+              export const helper = buildHelper(mainGreetingText);
+            `
           },
           'controller.js': '"index controller"',
           'route.js': '"index route"',
@@ -72,7 +83,10 @@ module.exports = {
           'new': {
             '-components': {
               'show-default-title': {
-                'helper.js': '"show-default-title helper"',
+                'helper.js': stripIndents`
+                  import { helper as buildHelper } from '@ember/component/helper';
+                  export default buildHelper(showDefaultTitle);
+                `,
                 'helper-integration-test.js': '"show-default-title helper integration test"'
               }
             },
