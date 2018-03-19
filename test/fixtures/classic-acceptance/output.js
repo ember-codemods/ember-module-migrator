@@ -140,6 +140,12 @@ module.exports = {
       }
     }
   },
+  'config': {
+    'environment.js': '"ENV"',
+    'foo': {
+      'baz.sh': 'yolo'
+    }
+  },
   'tests': {
     'acceptance': {
       'post-test.js': '"post acceptance test"'
