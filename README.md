@@ -95,11 +95,14 @@ loadInitializers(App, config.modulePrefix+'/src/init');
 loadInitializers(App, config.modulePrefix);
 ```
 
-Finally, in `tests/test-helper.js`, load the app from `../src/main`
+### Running Tests
 
-```js
-import Application from '../src/main';
-```
+ * `npm run test`
+
+To debug tests:
+
+  * All tests: `mocha --debug-brk --inspect test/**/*-test.js`
+  * A single test: `mocha --debug-brk --inspect test/**/*-test.js --grep test-helpers`
 
 ### Important Notes
 
