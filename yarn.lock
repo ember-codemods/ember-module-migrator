@@ -1521,10 +1521,11 @@ fill-range@^2.1.0:
     repeat-string "^1.5.2"
 
 fixturify@^0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/fixturify/-/fixturify-0.3.3.tgz#842eaa120564c9881e099ed06dc082a81e97fa71"
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/fixturify/-/fixturify-0.3.4.tgz#c676de404a7f8ee8e64d0b76118e62ec95ab7b25"
   dependencies:
     fs-extra "^0.30.0"
+    matcher-collection "^1.0.4"
 
 flat-cache@^1.2.1:
   version "1.2.2"
@@ -2048,6 +2049,12 @@ loose-envify@^1.0.0:
 matcher-collection@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/matcher-collection/-/matcher-collection-1.0.4.tgz#2f66ae0869996f29e43d0b62c83dd1d43e581755"
+  dependencies:
+    minimatch "^3.0.2"
+
+matcher-collection@^1.0.4:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/matcher-collection/-/matcher-collection-1.0.5.tgz#2ee095438372cb8884f058234138c05c644ec339"
   dependencies:
     minimatch "^3.0.2"
 
