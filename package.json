@@ -32,7 +32,7 @@
     "inflection": "^1.10.0",
     "nopt": "^4.0.1",
     "rsvp": "^3.2.1",
-    "walk-sync": "^0.3.2"
+    "walk-sync": "^1.0.0"
   },
   "engines": {
     "node": ">= 4"
