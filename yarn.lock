@@ -2843,8 +2843,8 @@ util-deprecate@~1.0.1:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
 
 walk-sync@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/walk-sync/-/walk-sync-1.0.0.tgz#8cb4474b72853adbb06d0968db48e3bbe82aff94"
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/walk-sync/-/walk-sync-1.0.1.tgz#6f38270392e297e5fd7b51eec9241be4242557c8"
   dependencies:
     ensure-posix-path "^1.0.0"
     matcher-collection "^1.0.0"
