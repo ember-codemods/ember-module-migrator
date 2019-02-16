@@ -33,7 +33,7 @@ to boot an application in order to boot it.
 ### Booting a migrated app
 
 The best path forward is to run the
-[ember-module-unification-blueprint](https://github.com/emberjs/ember-module-unification-blueprint)
+[ember-octane-blueprint](https://github.com/ember-cli/ember-octane-blueprint)
 on the converted app:
 
 ```sh
@@ -47,7 +47,7 @@ on the converted app:
 #   bower install --save components/ember#canary
 #
 # If you are already running 2.14, you can jump right to the command:
-ember init -b ember-module-unification-blueprint
+ember init -b ember-octane-app-blueprint
 ```
 Additionally any component names not in a template are not recognized by the
 migrator. For example if you have a computed property that returns the
