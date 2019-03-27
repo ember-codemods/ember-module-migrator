@@ -1545,8 +1545,8 @@ fill-range@^2.1.0:
     repeat-string "^1.5.2"
 
 fixturify@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/fixturify/-/fixturify-1.0.1.tgz#41867ba476240eec7bfb84050bffae1e063adaa3"
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/fixturify/-/fixturify-1.2.0.tgz#abe8c52dd27dbbfdb874a02893781c93425663ea"
   dependencies:
     "@types/fs-extra" "^5.0.5"
     "@types/minimatch" "^3.0.3"
