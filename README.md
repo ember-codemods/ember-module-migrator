@@ -47,7 +47,7 @@ on the converted app:
 #   bower install --save components/ember#canary
 #
 # If you are already running 2.14, you can jump right to the command:
-ember init -b ember-octane-app-blueprint
+ember init -b @ember/octane-app-blueprint
 ```
 Additionally any component names not in a template are not recognized by the
 migrator. For example if you have a computed property that returns the
